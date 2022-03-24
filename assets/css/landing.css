@@ -15,22 +15,21 @@ body{
     padding: 15px;
 }
 
+.content{
+    margin-top: 40px;
+    margin-left: 5%;
+    font-size: 25px;   
+    color: white;
+}
+
 .content h1{
     margin: 0;
-    color: white;
 }
 
 .content h1.title{
     color: #00D9F6;
     margin: 0;
     font-weight: 900;
-}
-
-.content{
-    margin-top: 40px;
-    margin-left: 5%;
-    font-size: 25px;   
-    color: white;
 }
 
 .content p.tagline{
