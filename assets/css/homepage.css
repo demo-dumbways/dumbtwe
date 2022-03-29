@@ -86,9 +86,9 @@ body{
     flex: 60%;
     margin: 0px 20px;
 }
+/* Content  End*/
 
-
-/* Left Side */
+/* Content - Left Side Start*/
 .card-profile {
     background-color: #263849;
     /* width: 220px; */
@@ -144,3 +144,5 @@ body{
     text-decoration: none;
     color: #00B7DF;
 }
+
+/* Content - Left Side End*/
