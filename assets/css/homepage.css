@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;900&display=swap');
 
+*{
+    margin: 0;
+}
+/* Navbar  Start*/
+
 body{
     background-color: #122232;
     font-family: 'Poppins', sans-serif;
@@ -63,4 +68,79 @@ body{
     font-size: 20px;
     margin-left: 10px;
     cursor: pointer;
+}
+
+/* Navbar  End*/
+
+/* Content  Start*/
+.content{
+    display: flex;
+    margin: 20px 20px;
+}
+
+.content div.left-side, .content div.right-side{
+    flex: 20%;
+}
+
+.content div.middle{
+    flex: 60%;
+    margin: 0px 20px;
+}
+
+
+/* Left Side */
+.card-profile {
+    background-color: #263849;
+    /* width: 220px; */
+    border-radius: 16px;;
+    text-align: center;
+    padding: 40px 10px 20px 10px;
+    color: white;
+    font-size: 10px;
+    background-image: url('../img/backdrop.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: -70px;
+    
+}
+
+.card-profile .biodata img{
+    border-radius: 50%;
+    width: 30%;
+    margin-bottom: 10px;
+}
+
+.card-profile .biodata .username{
+    color: #9F9F9F;
+}
+
+.card-profile .biodata .bio{
+    margin-top: 15px;
+    color: #c7c4c4;
+}
+
+.card-profile hr{
+    margin: 10px;
+    border: 1px solid #8a8888;
+}
+
+.card-profile .follow{
+    display: flex;
+}
+
+.card-profile .follow div{
+    flex: 1;
+}
+
+.card-profile .follow p{
+    color: #c7c4c4;
+}
+
+.card-profile .follow div.following{
+    border-right: 1px solid #D0D0D0;
+}
+
+.card-profile a{
+    text-decoration: none;
+    color: #00B7DF;
 }
