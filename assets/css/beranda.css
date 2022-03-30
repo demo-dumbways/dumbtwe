@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+/* Navbar  Start*/
+
+body {
+  background-color: #122232;
+}
+
+.navbar {
+  display: flex;
+  padding: 5px 20px;
+}
+
+.navbar div {
+  display: flex;
+  flex: 1;
+}
+
+.navbar .left i {
+  color: aqua;
+  font-size: 25px;
+}
+
+.navbar .middle {
+  justify-content: center;
+}
+
+.navbar .middle input {
+  width: 80%;
+  border: none;
+  border-radius: 5px;
+  padding: 0px 25px;
+  background-color: #334960;
+  color: #c0cad3;
+  text-align: center;
+}
+
+.navbar .middle input::placeholder {
+  color: #90a2b4;
+  text-align: center;
+}
+
+.navbar .middle input:focus {
+  outline: none;
+}
+
+.navbar .right {
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.navbar .right a {
+  text-decoration: none;
+  color: #c0cad3;
+  background-color: #0c3b6b;
+  padding: 5px 20px;
+  border-radius: 15px;
+  font-size: 13px;
+}
+
+.navbar .right i {
+  color: white;
+  font-size: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* Navbar  End*/
+
+/* Content  Start*/
+.content {
+  display: flex;
+  margin: 20px 20px;
+}
+
+.content div.left-side,
+.content div.right-side {
+  flex: 20%;
+}
+
+.content div.middle {
+  flex: 60%;
+  margin: 0px 20px;
+}
+/* Content  End*/
+
+/* Content - Left Side Profile Start*/
+.p-20 {
+  padding: 20;
+}
+
+.card {
+  background-color: #263849;
+  border-radius: 16px;
+  color: white;
+  font-size: 10px;
+  overflow: hidden;
+}
+
+.profile {
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.banner img {
+  width: 100%;
+  border-radius: 16px 16px 0px 0px;
+  object-fit: cover;
+  height: 80px;
+}
+
+.profile .biodata img {
+  border-radius: 50%;
+  width: 30%;
+  margin-bottom: 10px;
+  margin-top: -40px;
+}
+
+.profile .biodata .username {
+  color: #9f9f9f;
+}
+
+.profile .biodata .bio {
+  margin-top: 15px;
+  color: #c7c4c4;
+}
+
+.profile hr {
+  margin: 10px 20px;
+  border: 1px solid #8a8888;
+}
+
+.profile .follow {
+  display: flex;
+}
+
+.profile .follow div {
+  flex: 1;
+}
+
+.profile .follow p {
+  color: #c7c4c4;
+}
+
+.profile .follow div.following {
+  border-right: 1px solid #d0d0d0;
+}
+
+.profile a {
+  text-decoration: none;
+  color: #00b7df;
+}
+
+/* Content - Left Side rofile End*/
+
+/* Content - Left Side List Follow Start*/
+.list-follow {
+  margin-top: 20px;
+}
+
+.list-follow .suggest {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.list-follow .suggest div:nth-child(odd) {
+  flex: 1;
+}
+
+.list-follow .suggest div:nth-child(2) {
+  flex: 2;
+}
+
+.suggest .avatar img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.suggest .account {
+  padding-left: 10px;
+  /* background-color: #00B7DF; */
+  color: #c7c4c4;
+}
+
+.suggest .account a {
+  font-size: 12px;
+  text-decoration: none;
+  color: white;
+}
+
+.suggest .btn-follow button {
+  border: none;
+  padding: 5px 8px;
+  background-color: white;
+  border-radius: 15px;
+  color: #263849;
+  font-weight: 600;
+  font-size: 12px;
+}
+/* Content - Left Side List Follow End*/
+
+/* Content - Middle Side Post Thread Start*/
+
+.middle .post-thread {
+  display: flex;
+}
+
+.post-thread .left {
+  flex: 6%;
+}
+
+.post-thread .left img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.post-thread .right {
+  flex: 94%;
+  padding-left: 20px;
+}
+
+.post-thread .right textarea,
+input {
+  background-color: #4e657c;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  resize: none;
+  margin-bottom: 8px;
+}
+
+.post-thread .right textarea::placeholder,
+input::placeholder {
+  color: #9f9f9f;
+}
+
+.post-thread .right .file-button-group {
+  margin-top: 20px;
+  display: flex;
+}
+
+.post-thread .right .file-button-group .file {
+  flex: 1;
+  display: flex;
+}
+
+.post-thread .right .file-button-group .btn-publish {
+  flex: 1;
+  text-align: right;
+}
+
+.post-thread .right .file-button-group button {
+  padding: 7px 20px;
+  border-radius: 20px;
+  border: none;
+  background-color: #00b7df;
+  font-weight: 700;
+  color: #263849;
+  cursor: pointer;
+}
+
+.post-thread .right .file-button-group .file label {
+  border-radius: 20px;
+  border: 2px solid #4e657c;
+  font-weight: 300;
+  padding: 7px 20px;
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.post-thread .right .file-button-group .file label i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.post-thread .right .file-button-group .file label i.fa-image {
+  color: #00d6d6;
+  text-shadow: 0 0 10px #00d6d6;
+}
+
+.post-thread .right .file-button-group .file label i.fa-circle-play {
+  color: #00c2ff;
+  text-shadow: 0 0 10px #00c2ff;
+}
+
+/* Content - Middle Side Post Thread End*/
+
+/* Content - Middle Side View Thread Start*/
+
+.middle .view-thread {
+  margin-top: 15px;
+  display: flex;
+}
+
+.view-thread .left {
+  flex: 6%;
+}
+
+.view-thread .left img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.view-thread .right {
+  flex: 94%;
+  padding-left: 20px;
+}
+
+.view-thread .right .profile-group {
+  display: flex;
+}
+
+.view-thread .right .profile-group .left {
+  flex: 1;
+}
+
+.view-thread .right .profile-group h3 {
+  display: inline-block;
+  margin-right: 3px;
+}
+
+.view-thread .right .profile-group span {
+  color: #9f9f9f;
+}
+
+.view-thread .right .profile-group .right {
+  flex: 1;
+  text-align: right;
+  font-size: 15px;
+}
+
+/* Content - Middle Side Post Thread End*/

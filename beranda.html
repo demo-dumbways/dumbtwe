@@ -1,0 +1,138 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="./assets/css/beranda.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Homepage</title>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="left">
+        <a href="homepage.html">
+          <i class="fa-brands fa-twitter text-info"></i>
+        </a>
+      </div>
+      <div class="middle">
+        <input type="text" placeholder="explore" />
+      </div>
+      <div class="right">
+        <a href="">Logout</a>
+        <i class="fa-solid fa-expand"></i>
+      </div>
+    </nav>
+
+    <div class="content">
+      <div class="left-side">
+        <div class="card profile">
+          <div class="banner">
+            <img src="./assets/img/backdrop.jpg" alt="" />
+          </div>
+          <div class="biodata">
+            <img src="./assets/img/profile.jpg" alt="" />
+            <h3>Ilham Fathullah</h3>
+            <p class="username">@ilfat_fathul</p>
+            <p class="bio">Play Hard, Study Hard, Istira Hard</p>
+          </div>
+          <hr />
+          <div class="follow">
+            <div class="following">
+              <h2>57k</h2>
+              <p>following</p>
+            </div>
+            <div class="followers">
+              <h2>382</h2>
+              <p>followers</p>
+            </div>
+          </div>
+          <hr />
+          <a href="#">Edit Profile</a>
+          <hr />
+          <a href="#">My Thread</a>
+        </div>
+
+        <div class="card list-follow p-20">
+          <h3>Who is to follow you</h3>
+          <div class="list-suggest">
+            <div class="suggest">
+              <div class="avatar">
+                <img src="./assets/img/profile.jpg" alt="" />
+              </div>
+              <div class="account">
+                <a href=""> Steve Rogers </a>
+                <p>@steve_r</p>
+              </div>
+              <div class="btn-follow">
+                <button>Follow</button>
+              </div>
+            </div>
+            <div class="suggest">
+              <div class="avatar">
+                <img src="./assets/img/profile.jpg" alt="" />
+              </div>
+              <div class="account">
+                <a href=""> Steve Rogers </a>
+                <p>@steve_r</p>
+              </div>
+              <div class="btn-follow">
+                <button>Follow</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="middle">
+        <div class="card p-20 post-thread">
+          <div class="left">
+            <img src="./assets/img/profile.jpg" alt="" />
+          </div>
+          <div class="right">
+            <form>
+              <textarea placeholder="What's happening?" rows="5"></textarea>
+              <input type="text" placeholder="# Hastag (optional)" />
+              <div class="file-button-group">
+                <div class="file">
+                  <label for="file-photo">
+                    <i class="fa-solid fa-image"></i> Photo
+                  </label>
+                  <input type="file" id="file-photo" hidden />
+                  <label for="file-video">
+                    <i class="fa-solid fa-circle-play"></i> Video
+                  </label>
+                  <input type="file" id="file-video" hidden />
+                </div>
+                <div class="btn-publish">
+                  <button>Publish</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="card p-20 view-thread">
+          <div class="left">
+            <img src="./assets/img/profile.jpg" alt="" />
+          </div>
+          <div class="right">
+            <div class="profile-group">
+              <div class="left">
+                <div>
+                  <h3>Tom Cruise</h3>
+                  <span>@tomtom</span>
+                </div>
+                <span> 33 minutes ago</span>
+              </div>
+              <div class="right"><i class="fa-solid fa-ellipsis"></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right-side"></div>
+    </div>
+  </body>
+</html>
