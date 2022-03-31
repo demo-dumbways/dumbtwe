@@ -231,10 +231,10 @@ input {
   background-color: #4e657c;
   color: #c0cad3;
   width: 100%;
-  padding: 10px;
   border: none;
   border-radius: 10px;
   resize: none;
+  padding: 10px;
   margin-bottom: 8px;
 }
 
@@ -272,6 +272,10 @@ input:focus {
   font-weight: 700;
   color: #263849;
   cursor: pointer;
+}
+
+.post-thread .right .file-button-group button:hover {
+  box-shadow: 0 0 10px #00d6d6;
 }
 
 .post-thread .right .file-button-group .file label {
@@ -420,6 +424,16 @@ input:focus {
   margin-right: 10px;
   font-size: 15px;
   cursor: pointer;
+}
+
+.view-thread .right .bottom .react-button button.btn-like:hover {
+  background-color: #ff3c3c;
+  color: white;
+}
+
+.view-thread .right .bottom .react-button button.btn-comment:hover {
+  background-color: #218a6b;
+  color: white;
 }
 
 /* Content - Middle Side Post Thread End*/
