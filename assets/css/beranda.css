@@ -457,6 +457,11 @@ input:focus {
   width: 95%;
 }
 
+.right-side .list-trend div.left-trend a {
+  color: white;
+  text-decoration: none;
+}
+
 .right-side .list-trend div.left-trend p {
   color: #9f9f9f;
 }
@@ -467,3 +472,86 @@ input:focus {
 }
 
 /* Trending - Right Side End*/
+
+/* Edit Profile - Middle Side Start*/
+.edit-profile .group-file {
+  display: flex;
+  align-items: center;
+}
+
+.edit-profile .group-file img {
+  border-radius: 50%;
+  width: 13%;
+  margin-right: 25px;
+}
+
+.edit-profile .group-file label {
+  border-radius: 20px;
+  border: 2px solid #4e657c;
+  font-weight: 300;
+  padding: 7px 20px;
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.edit-profile .group-file label i.fa-image {
+  font-size: 20px;
+  margin-right: 10px;
+  color: #00d6d6;
+  text-shadow: 0 0 10px #00d6d6;
+}
+
+.edit-profile div.group-input {
+  margin-top: 10px;
+}
+
+.edit-profile .group-input label {
+  font-size: 12px;
+}
+
+.edit-profile .group-input textarea,
+input {
+  background-color: #4e657c;
+  color: #c0cad3;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  resize: none;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+.edit-profile .group-input textarea:focus,
+input:focus {
+  color: #c0cad3;
+  outline: none;
+}
+
+.edit-profile .group-btn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.edit-profile .group-btn .btn-save button {
+  padding: 7px 20px;
+  border-radius: 20px;
+  border: none;
+  background-color: #00b7df;
+  font-weight: 700;
+  color: #263849;
+  cursor: pointer;
+}
+
+.edit-profile .group-btn .btn-cancel button {
+  color: white;
+  background: none;
+  border: none;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+/* Edit Profile - Middle Side End*/
