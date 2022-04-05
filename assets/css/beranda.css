@@ -457,6 +457,11 @@ input:focus {
   width: 95%;
 }
 
+.right-side .list-trend div.left-trend a {
+  color: white;
+  text-decoration: none;
+}
+
 .right-side .list-trend div.left-trend p {
   color: #9f9f9f;
 }
