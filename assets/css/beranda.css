@@ -5,6 +5,7 @@
   padding: 0;
   font-family: 'Poppins', sans-serif;
 }
+
 /* Navbar  Start*/
 
 body {
@@ -14,6 +15,9 @@ body {
 .navbar {
   display: flex;
   padding: 5px 20px;
+  /* position: sticky;
+  top: 0;
+  background-color: #122232; */
 }
 
 .navbar div {
@@ -87,6 +91,7 @@ body {
   flex: 60%;
   margin: 0px 20px;
 }
+
 /* Content  End*/
 
 /* Content - Left Side Profile Start*/
@@ -197,13 +202,14 @@ body {
 
 .suggest .btn-follow button {
   border: none;
-  padding: 5px 8px;
+  padding: 3px 8px;
   background-color: white;
   border-radius: 15px;
   color: #263849;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 11px;
 }
+
 /* Content - Left Side List Follow End*/
 
 /* Content - Middle Side Post Thread Start*/
@@ -380,6 +386,7 @@ input:focus {
 .view-thread .right .bottom {
   margin-top: 20px;
 }
+
 .view-thread .right .bottom .react-view {
   display: flex;
   margin-bottom: 25px;
@@ -437,3 +444,26 @@ input:focus {
 }
 
 /* Content - Middle Side Post Thread End*/
+
+
+/* Trending - Right Side Start*/
+.right-side .trend {
+  display: flex;
+  align-items: center;
+  margin-top: 13px;
+}
+
+.right-side .list-trend div.left-trend {
+  width: 95%;
+}
+
+.right-side .list-trend div.left-trend p {
+  color: #9f9f9f;
+}
+
+.right-side .list-trend div.right-trend {
+  width: 5%;
+  text-align: right;
+}
+
+/* Trending - Right Side End*/
