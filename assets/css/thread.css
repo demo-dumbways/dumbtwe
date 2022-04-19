@@ -1,0 +1,21 @@
+.middle-detail-traid {
+    margin-left: 20px;
+}
+
+.middle hr {
+    margin-top: 20px;
+    border: 1px solid #8a8888;
+  }
+
+.detail-content-thread p {
+    font-size: 12px;
+}
+
+.list-suggest hr {
+    margin-top: 20px;
+    border: 1px solid #8a8888;
+} 
+
+.profile hr {
+    margin: 10px;
+}

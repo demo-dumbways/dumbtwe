@@ -135,10 +135,7 @@ body {
   color: #c7c4c4;
 }
 
-.profile hr {
-  margin: 10px 20px;
-  border: 1px solid #8a8888;
-}
+
 
 .profile .follow {
   display: flex;
