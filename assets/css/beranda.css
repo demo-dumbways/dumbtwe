@@ -552,3 +552,28 @@ input:focus {
 }
 
 /* Edit Profile - Middle Side End*/
+
+/* another-thread */
+.btn-user-follow{
+  margin-top: 10px;
+  background-color: #00C2FF;
+  color: #fff;
+  border: none;
+  padding: 5px 12px;
+  border-radius: 5px;
+
+}
+
+.profile hr{
+  margin: 10px;
+  border: 1px solid #8a8888;
+}
+
+.list-suggest hr {
+  margin-top: 20px;
+  border: 1px solid #8a8888;
+}
+
+.view-another-thread{
+  margin-top: 0!important;
+}
