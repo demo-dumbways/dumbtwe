@@ -40,8 +40,8 @@ body {
   border-radius: 5px;
   padding: 0px 25px;
   background-color: #334960;
-  color: white;
   text-align: left;
+  color: white;
 }
 
 .navbar .middle input::placeholder {
