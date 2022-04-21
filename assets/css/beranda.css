@@ -474,23 +474,23 @@ input:focus {
 /* Trending - Right Side End*/
 
 /* Edit Profile - Middle Side Start*/
-.edit-profile .group-file {
-  display: flex;
-  align-items: center;
-}
-
 .edit-profile .group-file img {
   border-radius: 50%;
   width: 13%;
   margin-right: 25px;
 }
 
+.edit-profile .group-file {
+  display: flex;
+  align-items: center;
+}
+
+
 .edit-profile .group-file label {
   border-radius: 20px;
   border: 2px solid #4e657c;
   font-weight: 300;
   padding: 7px 20px;
-  margin-right: 5px;
   display: flex;
   align-items: center;
   cursor: pointer;
