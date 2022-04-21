@@ -40,8 +40,8 @@ body {
   border-radius: 5px;
   padding: 0px 25px;
   background-color: #334960;
-  color: #c0cad3;
-  text-align: center;
+  color: white;
+  text-align: left;
 }
 
 .navbar .middle input::placeholder {
@@ -312,7 +312,7 @@ input:focus {
 /* Content - Middle Side View Thread Start*/
 
 .middle .view-thread {
-  margin-top: 15px;
+  margin-bottom: 15px;
   display: flex;
 }
 
@@ -554,7 +554,7 @@ input:focus {
 /* Edit Profile - Middle Side End*/
 
 /* another-thread */
-.btn-user-follow{
+.btn-user-follow {
   margin-top: 10px;
   background-color: #00C2FF;
   color: #fff;
@@ -564,7 +564,7 @@ input:focus {
 
 }
 
-.profile hr{
+.profile hr {
   margin: 10px;
   border: 1px solid #8a8888;
 }
@@ -574,6 +574,6 @@ input:focus {
   border: 1px solid #8a8888;
 }
 
-.view-another-thread{
-  margin-top: 0!important;
+.view-another-thread {
+  margin-top: 0 !important;
 }
