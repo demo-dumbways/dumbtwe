@@ -213,6 +213,7 @@ body {
 
 .middle .post-thread {
   display: flex;
+  margin-bottom: 20px;
 }
 
 .post-thread .left {
