@@ -3,6 +3,7 @@
 <head>
     <title>Login</title>
     <link rel="stylesheet" href="./assets/css/auth.css">
+    <script src="https://cdn.jsdelivr.net/npm/@kontenbase/sdk"></script>
 </head>
 
 <body>
@@ -22,7 +23,7 @@
                 <div>
                     <input id="input-password" type="password" placeholder="password" />
                 </div>
-                <button type="button">Login</button>
+                <button type="button" onclick="login()">Login</button>
                 <p>
                     Dont have account?
                     <a href="register.html">Register</a>
@@ -31,6 +32,7 @@
             <!-- </div> -->
         </div>
     </div>
+    <script src="auth.js"></script>
 </body>
 </div>
 </body>
