@@ -6,8 +6,6 @@
   font-family: 'Poppins', sans-serif;
 }
 
-/* Navbar  Start*/
-
 body {
   background-color: #122232;
 }
@@ -15,9 +13,6 @@ body {
 .navbar {
   display: flex;
   padding: 5px 20px;
-  /* position: sticky;
-  top: 0;
-  background-color: #122232; */
 }
 
 .navbar div {
@@ -40,26 +35,21 @@ body {
   border-radius: 5px;
   padding: 0px 25px;
   background-color: #334960;
-  text-align: left;
   color: white;
+  text-align: left;
 }
 
 .navbar .middle input::placeholder {
-  color: #90a2b4;
   text-align: center;
-}
-
-.navbar .middle input:focus {
-  outline: none;
 }
 
 .navbar .right {
   justify-content: flex-end;
+  text-align: center;
   align-items: center;
-  color: white;
 }
 
-.navbar .right a {
+.navbar .right a.logout {
   text-decoration: none;
   color: #c0cad3;
   background-color: #0c3b6b;
@@ -76,9 +66,6 @@ body {
   cursor: pointer;
 }
 
-/* Navbar  End*/
-
-/* Content  Start*/
 .content {
   display: flex;
   margin: 20px 20px;
@@ -86,17 +73,14 @@ body {
 
 .content div.left-side,
 .content div.right-side {
-  flex: 20%;
+  flex: 20%
 }
 
-.content div.middle {
+.content div.middle-side {
   flex: 60%;
   margin: 0px 20px;
 }
 
-/* Content  End*/
-
-/* Content - Left Side Profile Start*/
 .p-20 {
   padding: 20;
 }
@@ -137,6 +121,11 @@ body {
   color: #c7c4c4;
 }
 
+.profile hr {
+  margin: 10px 20px;
+  border: 1px solid #8a8888;
+}
+
 .profile .follow {
   display: flex;
 }
@@ -158,9 +147,6 @@ body {
   color: #00b7df;
 }
 
-/* Content - Left Side rofile End*/
-
-/* Content - Left Side List Follow Start*/
 .list-follow {
   margin-top: 20px;
 }
@@ -170,6 +156,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 10px;
+
 }
 
 .list-follow .suggest div:nth-child(odd) {
@@ -178,6 +165,7 @@ body {
 
 .list-follow .suggest div:nth-child(2) {
   flex: 2;
+
 }
 
 .suggest .avatar img {
@@ -199,19 +187,15 @@ body {
 
 .suggest .btn-follow button {
   border: none;
-  padding: 3px 8px;
+  padding: 5px 8px;
   background-color: white;
   border-radius: 15px;
   color: #263849;
   font-weight: 600;
-  font-size: 11px;
+  font-size: 10px;
 }
 
-/* Content - Left Side List Follow End*/
-
-/* Content - Middle Side Post Thread Start*/
-
-.middle .post-thread {
+.middle-side .post-thread {
   display: flex;
   margin-bottom: 20px;
 }
@@ -278,10 +262,6 @@ input:focus {
   cursor: pointer;
 }
 
-.post-thread .right .file-button-group button:hover {
-  box-shadow: 0 0 10px #00d6d6;
-}
-
 .post-thread .right .file-button-group .file label {
   border-radius: 20px;
   border: 2px solid #4e657c;
@@ -308,11 +288,7 @@ input:focus {
   text-shadow: 0 0 10px #00c2ff;
 }
 
-/* Content - Middle Side Post Thread End*/
-
-/* Content - Middle Side View Thread Start*/
-
-.middle .view-thread {
+.middle-side .view-thread {
   margin-bottom: 15px;
   display: flex;
 }
@@ -373,12 +349,12 @@ input:focus {
 }
 
 .view-thread .right .content-thread img {
-  max-height: 400px;
   width: 100%;
+  max-height: 400px;
   margin-top: 10px;
   object-fit: contain;
   border-radius: 10px;
-  background-color: #000000;
+  background-color: black;
 }
 
 .view-thread .right .bottom {
@@ -408,7 +384,7 @@ input:focus {
 }
 
 .view-thread .right .bottom .react-group span {
-  font-size: 13;
+  font-size: 13px;
 }
 
 .view-thread .right .bottom .react-group i.fa-heart {
@@ -433,17 +409,12 @@ input:focus {
 
 .view-thread .right .bottom .react-button button.btn-like:hover {
   background-color: #ff3c3c;
-  color: white;
 }
 
 .view-thread .right .bottom .react-button button.btn-comment:hover {
   background-color: #218a6b;
-  color: white;
 }
 
-/* Content - Middle Side Post Thread End*/
-
-/* Trending - Right Side Start*/
 .right-side .trend {
   display: flex;
   align-items: center;
@@ -468,29 +439,24 @@ input:focus {
   text-align: right;
 }
 
-/* Trending - Right Side End*/
-
-/* Edit Profile - Middle Side Start*/
-.edit-profile .group-file {
-  display: flex;
-  align-items: center;
-}
-
 .edit-profile .group-file img {
   border-radius: 50%;
   width: 13%;
   margin-right: 25px;
 }
 
-.edit-profile .group-file label {
-  border-radius: 20px;
-  border: 2px solid #4e657c;
-  font-weight: 300;
-  padding: 7px 20px;
-  margin-right: 5px;
+.edit-profile .group-file {
   display: flex;
   align-items: center;
-  cursor: pointer;
+}
+
+.edit-profile .group-file label {
+  border: 2px solid #4e657c;
+  border-radius: 20px;
+  font-weight: 300;
+  padding: 7px 20px;
+  display: flex;
+  align-items: center;
 }
 
 .edit-profile .group-file label i.fa-image {
@@ -500,30 +466,23 @@ input:focus {
   text-shadow: 0 0 10px #00d6d6;
 }
 
-.edit-profile div.group-input {
-  margin-top: 10px;
-}
-
 .edit-profile .group-input label {
   font-size: 12px;
 }
 
-.edit-profile .group-input textarea,
-input {
+.edit-profile div.group-input {
+  margin-top: 10px;
+}
+
+.edit-profile .group-input input,
+textarea {
   background-color: #4e657c;
   color: #c0cad3;
   width: 100%;
-  border: none;
   border-radius: 10px;
   resize: none;
   padding: 10px;
   margin-top: 5px;
-}
-
-.edit-profile .group-input textarea:focus,
-input:focus {
-  color: #c0cad3;
-  outline: none;
 }
 
 .edit-profile .group-btn {
@@ -531,16 +490,6 @@ input:focus {
   justify-content: flex-end;
   align-items: center;
   margin-top: 20px;
-}
-
-.edit-profile .group-btn .btn-save button {
-  padding: 7px 20px;
-  border-radius: 20px;
-  border: none;
-  background-color: #00b7df;
-  font-weight: 700;
-  color: #263849;
-  cursor: pointer;
 }
 
 .edit-profile .group-btn .btn-cancel button {
@@ -551,28 +500,29 @@ input:focus {
   cursor: pointer;
 }
 
-/* Edit Profile - Middle Side End*/
+.edit-profile .group-btn .btn-save button {
+  padding: 7px 20px;
+  border-radius: 20px;
+  border: none;
+  background-color: #00d6d6;
+  font-weight: 700;
+  color: #263849;
+  cursor: pointer;
+}
 
-/* another-thread */
+.card hr {
+  margin-top: 20px;
+  border: 1px solid grey;
+}
+
 .btn-user-follow {
-  margin-top: 10px;
-  background-color: #00c2ff;
+  background-color: #00C2FF;
   color: #fff;
   border: none;
-  padding: 5px 12px;
-  border-radius: 5px;
+  padding: 8px 20px;
+  border-radius: 10px;
 }
 
-.profile hr {
-  margin: 10px;
-  border: 1px solid #8a8888;
-}
-
-.list-suggest hr {
-  margin-top: 20px;
-  border: 1px solid #8a8888;
-}
-
-.view-another-thread {
-  margin-top: 0 !important;
+.edit-profile h1 {
+  text-align: center;
 }

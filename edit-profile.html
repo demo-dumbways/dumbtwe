@@ -1,25 +1,32 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="./assets/css/beranda.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Homepage</title>
+    <link rel="stylesheet" href="./assets/css/beranda.css">
+    <script src="https://cdn.jsdelivr.net/npm/@kontenbase/sdk"></script>
+
+    <title>Beranda</title>
 </head>
 
 <body>
     <nav class="navbar">
         <div class="left">
             <a href="beranda.html">
-                <i class="fa-brands fa-twitter text-info"></i>
+                <i class="fa-brands fa-twitter"></i>
             </a>
         </div>
+
         <div class="middle">
-            <input type="text" placeholder="explore" />
+            <input type="text" placeholder="explore">
         </div>
+
         <div class="right">
-            <a href="">Logout</a>
+            <a href="verification.html">
+                <i class="fa-solid fa-circle-check"></i>
+            </a>
+            <a class="logout" href="">Logout</a>
             <i class="fa-solid fa-expand"></i>
         </div>
     </nav>
@@ -28,93 +35,107 @@
         <div class="left-side">
             <div class="card profile">
                 <div class="banner">
-                    <img src="./assets/img/backdrop.jpg" alt="" />
+                    <img src="./assets/img/backdrop.jpg" alt="">
                 </div>
                 <div class="biodata">
-                    <img src="./assets/img/profile.jpg" alt="" />
+                    <img src="./assets/img/profile.jpg" alt="">
                     <h3>Ilham Fathullah</h3>
                     <p class="username">@ilfat_fathul</p>
                     <p class="bio">Play Hard, Study Hard, Istira Hard</p>
                 </div>
-                <hr />
+                <hr>
                 <div class="follow">
                     <div class="following">
                         <h2>57k</h2>
                         <p>following</p>
                     </div>
                     <div class="followers">
-                        <h2>382</h2>
+                        <h2>282</h2>
                         <p>followers</p>
                     </div>
                 </div>
-                <hr />
-                <a href="#">My Thread</a>
+                <hr>
+                <a href="my-thread.html">My Thread</a>
             </div>
 
             <div class="card list-follow p-20">
                 <h3>Who is to follow you</h3>
+
                 <div class="list-suggest">
+
                     <div class="suggest">
+
                         <div class="avatar">
-                            <img src="./assets/img/profile.jpg" alt="" />
+                            <img src="./assets/img/profile.jpg" alt="">
                         </div>
+
                         <div class="account">
-                            <a href=""> Steve Rogers </a>
+                            <a href="">
+                                Steve Rogers
+                            </a>
                             <p>@steve_r</p>
                         </div>
+
                         <div class="btn-follow">
                             <button>Follow</button>
                         </div>
                     </div>
                     <div class="suggest">
                         <div class="avatar">
-                            <img src="./assets/img/profile.jpg" alt="" />
+                            <img src="./assets/img/profile.jpg" alt="">
                         </div>
                         <div class="account">
-                            <a href=""> Steve Rogers </a>
+                            <a href="">
+                                Steve Rogers
+                            </a>
                             <p>@steve_r</p>
                         </div>
                         <div class="btn-follow">
                             <button>Follow</button>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
 
-        <div class="middle">
+        <div class="middle-side">
             <div class="card p-20 edit-profile">
                 <form>
                     <div class="group-file">
                         <img src="./assets/img/profile.jpg" alt="">
                         <label for="file-photo">
-                            <i class="fa-solid fa-image"></i> Choose File
+                            <i class="fa-solid fa-image"></i>Choose File
                         </label>
-                        <input type="file" id="file-photo" hidden />
+                        <input type="file" id="file-photo" hidden>
                     </div>
+
                     <div class="group-input">
                         <label for="fullname">Full Name</label>
-                        <input id="fullname" type="text" value="Ilham Fathullah" />
+                        <input type="text" id="fullname" value="ilham fathullah">
                     </div>
+
                     <div class="group-input">
                         <label for="username">Username</label>
-                        <input id="username" type="text" value="@ilfat_fathul" />
+                        <input type="text" id="username" value="ilham_fat">
                     </div>
+
                     <div class="group-input">
                         <label for="email">Email</label>
-                        <input id="email" type="text" value="ilhamfathullah04@gmail.com" />
+                        <input type="text" id="email" value="ilham@mail.com">
                     </div>
+
                     <div class="group-input">
                         <label for="biodata">Biodata</label>
-
-                        <textarea id="biodata" rows="5">Play Hard, Study Hard, Istira Hard</textarea>
+                        <textarea name="biodata" id="biodata" rows="5">Everything</textarea>
                     </div>
+
                     <div class="group-btn">
                         <div class="btn-cancel">
                             <button>Cancel</button>
                         </div>
                         <div class="btn-save">
-                            <button>Save</button>
+                            <button type="button" onclick="profileEdit()">Save</button>
                         </div>
                     </div>
                 </form>
@@ -127,6 +148,17 @@
                 <div class="list-trend">
                     <div class="trend">
                         <div class="left-trend">
+                            <a href="data-hashtag.html">
+                                <h4>#SpiderMan</h4>
+                            </a>
+                            <p>87K Tweets</p>
+                        </div>
+                        <div class="right-trend">
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </div>
+                    </div>
+                    <div class="trend">
+                        <div class="left-trend">
                             <a href="">
                                 <h4>#SpiderMan</h4>
                             </a>
@@ -136,25 +168,12 @@
                             <i class="fa-solid fa-ellipsis"></i>
                         </div>
                     </div>
-
                     <div class="trend">
                         <div class="left-trend">
                             <a href="">
-                                <h4>#Venom</h4>
+                                <h4>#SpiderMan</h4>
                             </a>
-                            <p>54K Tweets</p>
-                        </div>
-                        <div class="right-trend">
-                            <i class="fa-solid fa-ellipsis"></i>
-                        </div>
-                    </div>
-
-                    <div class="trend">
-                        <div class="left-trend">
-                            <a href="">
-                                <h4>#Fallout</h4>
-                            </a>
-                            <p>47K Tweets</p>
+                            <p>87K Tweets</p>
                         </div>
                         <div class="right-trend">
                             <i class="fa-solid fa-ellipsis"></i>
@@ -164,6 +183,7 @@
             </div>
         </div>
     </div>
+    <script src="user.js"></script>
 </body>
 
 </html>

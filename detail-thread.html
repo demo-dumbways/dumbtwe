@@ -1,26 +1,30 @@
 <html>
 
 <head>
-  <link rel="stylesheet" href="./assets/css/beranda.css" />
-  <link rel="stylesheet" href="./assets/css/thread.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./assets/css/beranda.css">
   <title>Detail Thread</title>
 </head>
 
 <body>
   <nav class="navbar">
     <div class="left">
-      <a href="homepage.html">
-        <i class="fa-brands fa-twitter text-info"></i>
+      <a href="beranda.html">
+        <i class="fa-brands fa-twitter"></i>
       </a>
     </div>
+
     <div class="middle">
-      <input type="text" placeholder="explore" />
+      <input type="text" placeholder="explore">
     </div>
+
     <div class="right">
-      <a href="">Logout</a>
+      <a href="verification.html">
+        <i class="fa-solid fa-circle-check"></i>
+      </a>
+      <a class="logout" href="">Logout</a>
       <i class="fa-solid fa-expand"></i>
     </div>
   </nav>
@@ -29,163 +33,171 @@
     <div class="left-side">
       <div class="card profile">
         <div class="banner">
-          <img src="./assets/img/backdrop-user.png" alt="" />
+          <img src="./assets/img/backdrop.jpg" alt="">
         </div>
         <div class="biodata">
-          <img src="./assets/img/profile-user.png" alt="" />
-          <h3>Jody Septiawan</h3>
-          <p class="username">@jedeye</p>
+          <img src="./assets/img/profile.jpg" alt="">
+          <h3>Ilham Fathullah</h3>
+          <p class="username">@ilfat_fathul</p>
           <p class="bio">Play Hard, Study Hard, Istira Hard</p>
         </div>
-        <hr />
+        <hr>
         <div class="follow">
           <div class="following">
             <h2>57k</h2>
             <p>following</p>
           </div>
           <div class="followers">
-            <h2>382</h2>
+            <h2>282</h2>
             <p>followers</p>
           </div>
         </div>
-        <hr />
-        <a href="#">Edit Profile</a>
+        <hr>
+        <a href="edit-profile.html">Edit Profile</a>
+        <hr>
+        <a href="my-thread.html">My Thread</a>
       </div>
 
       <div class="card list-follow p-20">
         <h3>Who is to follow you</h3>
+
         <div class="list-suggest">
+
+          <div class="suggest">
+
+            <div class="avatar">
+              <img src="./assets/img/profile.jpg" alt="">
+            </div>
+
+            <div class="account">
+              <a href="">
+                Steve Rogers
+              </a>
+              <p>@steve_r</p>
+            </div>
+
+            <div class="btn-follow">
+              <button>Follow</button>
+            </div>
+          </div>
           <div class="suggest">
             <div class="avatar">
-              <img src="./assets/img/follow1.png" alt="" />
+              <img src="./assets/img/profile.jpg" alt="">
             </div>
             <div class="account">
-              <a href=""> Steve Job </a>
-              <p>@steve_job</p>
+              <a href="">
+                Steve Rogers
+              </a>
+              <p>@steve_r</p>
             </div>
             <div class="btn-follow">
               <button>Follow</button>
             </div>
           </div>
-          <hr />
-          <div class="suggest">
-            <div class="avatar">
-              <img src="./assets/img/follow2.png" alt="" />
-            </div>
-            <div class="account">
-              <a href=""> Samsul </a>
-              <p>@samsul__</p>
-            </div>
-            <div class="btn-follow">
-              <button>Follow</button>
-            </div>
-          </div>
-          <hr />
-          <div class="suggest">
-            <div class="avatar">
-              <img src="./assets/img/follow3.png" alt="" />
-            </div>
-            <div class="account">
-              <a href=""> Selena </a>
-              <p>@selenas</p>
-            </div>
-            <div class="btn-follow">
-              <button>Follow</button>
-            </div>
-          </div>
+
         </div>
       </div>
     </div>
 
-    <div class="middle">
-        <div class="card p-20">
-            <div class="view-thread">
-                <div class="left">
-                    <img src="./assets/img/user-thread.png" alt="" />
+    <div class="middle-side">
+      <div class="card p-20">
+        <div class="view-thread">
+          <div class="left">
+            <img src="./assets/img/profile.jpg" alt="">
+          </div>
+          <div class="right">
+            <div class="top">
+              <div class="profile-user">
+                <div>
+                  <h3>Ilham Fathullah</h3>
+                  <span>@ilham</span>
                 </div>
-                <div class="right">
-                    <div class="top">
-                        <div class="profile-user">
-                        <div>
-                            <h3>Jody Septiawan</h3>
-                            <span>@jedeye</span>
-                        </div>
-                        <span> 33 minutes ago</span>
-                        </div>
-    
-                        <div class="options">
-                        <i class="fa-solid fa-ellipsis"></i>
-                        </div>
-                    </div>
-                    <div class="content-thread">
-                        <p>Hello World</p>
-                    </div>
-                    <div class="bottom">
-                        <div class="react-view">
-                        <div class="react-group">
-                            <i class="fa-solid fa-heart"></i> <span>27k</span>
-                        </div>
-                        <div class="react-group">
-                            <i class="fa-solid fa-comment-dots"></i> <span>10</span>
-                        </div>
-                        </div>
-                        <div class="react-button">
-                        <button class="btn-like">
-                            <i class="fa-solid fa-heart"></i> Like
-                        </button>
-                        <button class="btn-comment">
-                            <i class="fa-solid fa-comment-dots"></i> Comment
-                        </button>
-                        </div>
-                    </div>
-                </div>
+                <span>33 minutes ago</span>
+              </div>
+              <div class="options">
+                <i class="fa-solid fa-ellipsis"></i>
+              </div>
             </div>
-
-            <hr />
-
-            <div class="view-thread middle-detail-traid">
-                <div class="left">
-                    <img src="./assets/img/thread-comment1.png" alt="" />
-                </div>
-                <div class="right">
-                    <div class="top">
-                        <div class="profile-user">
-                            <div>
-                                <h3>Ilham Fathullah</h3>
-                                <span>@ilham_fathul</span>
-                                <span> 1j</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="detail-content-thread">
-                        <p>Hello there, its nice to be there right?</p>
-                    </div>
-                </div>
+            <div class="content-thread">
+              <p>
+                Hello World
+              </p>
             </div>
-
-            <hr />
-
-            <div class="view-thread middle-detail-traid">
-                <div class="left">
-                    <img src="./assets/img/thread-comment2.png" alt="" />
+            <div class="bottom">
+              <div class="react-view">
+                <div class="react-group">
+                  <i class="fa-solid fa-heart"></i> <span>742k</span>
                 </div>
-                <div class="right">
-                    <div class="top">
-                        <div class="profile-user">
-                            <div>
-                                <h3>Samsul Rijal</h3>
-                                <span>@sams</span>
-                                <span> 43mnt</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="detail-content-thread">
-                        <p>its pleasure to be there</p>
-                    </div>
+                <div class="react-group">
+                  <i class="fa-solid fa-comment-dots"></i> <span>142</span>
                 </div>
+              </div>
+              <div class="react-button">
+                <button class="btn-like">
+                  <i class="fa-solid fa-heart"></i> Like
+                </button>
+                <button class="btn-comment">
+                  <i class="fa-solid fa-comment-dots"></i> Comment
+                </button>
+              </div>
             </div>
-            
+          </div>
         </div>
+
+        <hr />
+
+        <div class="view-thread">
+          <div class="left">
+            <img src="./assets/img/profile-1.jpg" alt="">
+          </div>
+          <div class="right">
+            <div class="top">
+              <div class="profile-user">
+                <div>
+                  <h3>Tom Cruise</h3>
+                  <span>@tomtom</span>
+                  <span>1j</span>
+                </div>
+              </div>
+              <div class="options">
+                <i class="fa-solid fa-ellipsis"></i>
+              </div>
+            </div>
+            <div class="detail-content-thread">
+              <p>
+                Hello there, its nice to be there right?
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="view-thread">
+          <div class="left">
+            <img src="./assets/img/profile-2.jpg" alt="">
+          </div>
+          <div class="right">
+            <div class="top">
+              <div class="profile-user">
+                <div>
+                  <h3>Samsul Rijal</h3>
+                  <span>@tomtom</span>
+                  <span>45mnt</span>
+                </div>
+              </div>
+              <div class="options">
+                <i class="fa-solid fa-ellipsis"></i>
+              </div>
+            </div>
+            <div class="detail-content-thread">
+              <p>
+                its pleasure to be there
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="right-side">
@@ -203,25 +215,12 @@
               <i class="fa-solid fa-ellipsis"></i>
             </div>
           </div>
-
           <div class="trend">
             <div class="left-trend">
               <a href="">
-                <h4>#Venom</h4>
+                <h4>#SpiderMan</h4>
               </a>
-              <p>54K Tweets</p>
-            </div>
-            <div class="right-trend">
-              <i class="fa-solid fa-ellipsis"></i>
-            </div>
-          </div>
-
-          <div class="trend">
-            <div class="left-trend">
-              <a href="">
-                <h4>#Ethernals</h4>
-              </a>
-              <p>74K Tweets</p>
+              <p>87K Tweets</p>
             </div>
             <div class="right-trend">
               <i class="fa-solid fa-ellipsis"></i>
@@ -230,30 +229,19 @@
           <div class="trend">
             <div class="left-trend">
               <a href="">
-                <h4>#TeslaEpicSkin</h4>
+                <h4>#SpiderMan</h4>
               </a>
-              <p>114K Tweets</p>
+              <p>87K Tweets</p>
             </div>
             <div class="right-trend">
               <i class="fa-solid fa-ellipsis"></i>
             </div>
           </div>
-          <div class="trend">
-            <div class="left-trend">
-              <a href="">
-                <h4>#Fallout</h4>
-              </a>
-              <p>54K Tweets</p>
-            </div>
-            <div class="right-trend">
-              <i class="fa-solid fa-ellipsis"></i>
-            </div>
-          </div>
-        </div>
         </div>
       </div>
     </div>
   </div>
+
 </body>
 
 </html>
