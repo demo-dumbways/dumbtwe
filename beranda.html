@@ -107,28 +107,29 @@
         </div>
         <div class="right">
           <form>
-            <textarea placeholder="What's happening?" rows="5"></textarea>
-            <input type="text" placeholder="# Hastag (optional)">
+            <textarea id="content" placeholder="What's happening?" rows="5"></textarea>
+            <input id="hastag" type="text" placeholder="# Hastag (optional)">
             <div class="file-button-group">
               <div class="file">
                 <label for="file-photo">
-                  <i class="fa-solid fa-image"></i> Photo
+                  <i class="fa-solid fa-image"></i> <span id="photo-name"> Photo</span>
                 </label>
-                <input type="file" hidden id="file-photo">
+                <input type="file" hidden id="file-photo" onchange="changeName()">
                 <label for="file-video">
-                  <i class="fa-solid fa-circle-play"></i> Video
+                  <i class="fa-solid fa-circle-play"></i> <span id="video-name"> Video</span>
                 </label>
-                <input type="file" hidden id="file-video">
+                <input type="file" hidden id="file-video" onchange="changeName()">
               </div>
               <div class="btn-publish">
-                <button>Publish</button>
+                <button type="button" onclick="addThread()">Publish</button>
               </div>
             </div>
           </form>
         </div>
       </div>
-      <a href="detail-thread.html">
-        <div class="card p-20 view-thread">
+
+      <div id="thread-container">
+        <div class="card p-20 view-thread" onclick="location.href='detail-thread.html'">
           <div class="left">
             <img src="./assets/img/profile-1.jpg" alt="">
           </div>
@@ -137,6 +138,7 @@
               <div class="profile-user">
                 <div>
                   <h3>Tom Cruise</h3>
+                  <span><i class="fa-solid fa-circle-check"></i></span>
                   <span>@tomtom</span>
                 </div>
                 <span>33 minutes ago</span>
@@ -168,53 +170,10 @@
                 <button class="btn-like">
                   <i class="fa-solid fa-heart"></i> Like
                 </button>
-                <button class="btn-comment">
-                  <i class="fa-solid fa-comment-dots"></i> Comment
+                <button class="btn-comment" onclick="alert('haihai'); event.stopPropagation()">
+                  <i class=" fa-solid fa-comment-dots"></i> Comment
                 </button>
               </div>
-            </div>
-          </div>
-        </div>
-      </a>
-      <div class="card p-20 view-thread">
-        <div class="left">
-          <img src="./assets/img/profile-2.jpg" alt="">
-        </div>
-        <div class="right">
-          <div class="top">
-            <div class="profile-user">
-              <div>
-                <h3>Elon Musk</h3>
-                <span><i class="fa-solid fa-circle-check"></i></span>
-                <span>@mas_elon</span>
-              </div>
-              <span>2 hours ago</span>
-            </div>
-            <div class="options">
-              <i class="fa-solid fa-ellipsis"></i>
-            </div>
-          </div>
-          <div class="content-thread">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, eos!
-            </p>
-          </div>
-          <div class="bottom">
-            <div class="react-view">
-              <div class="react-group">
-                <i class="fa-solid fa-heart"></i> <span>218k</span>
-              </div>
-              <div class="react-group">
-                <i class="fa-solid fa-comment-dots"></i> <span>17</span>
-              </div>
-            </div>
-            <div class="react-button">
-              <button class="btn-like">
-                <i class="fa-solid fa-heart"></i> Like
-              </button>
-              <button class="btn-comment">
-                <i class="fa-solid fa-comment-dots"></i> Comment
-              </button>
             </div>
           </div>
         </div>
@@ -263,6 +222,7 @@
     </div>
   </div>
   <script src="./assets/js/auth.js"></script>
+  <script src="./assets/js/thread.js"></script>
 </body>
 
 </html>
