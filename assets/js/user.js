@@ -12,19 +12,22 @@ async function profileEdit() {
     let biodata = document.getElementById("biodata").value
 
     const { data, error } = await kontenbaseClient.auth.update({
-        fullname,
+        firstName: name,
         username
     });
 
+    alert("Edit Profile Succes")
+    renderUserInfo()
 }
 
-function renderUserInfo() {
-    // const { data, error } = await kontenbaseClient.auth.user();
+async function renderUserInfo() {
+    const { user, error } = await kontenbaseClient.auth.user();
 
-    document.getElementById("fullname").value = data.firstName
-    document.getElementById("username").value = data.username
-    document.getElementById("email").value = data.email
-    console.log(userData);
+    console.log(user);
+    document.getElementById("fullname").value = user.firstName
+    document.getElementById("username").value = user.username ? user.username : ""
+    document.getElementById("email").value = user.email
+    // console.log(userData);
 }
 
 renderUserInfo()

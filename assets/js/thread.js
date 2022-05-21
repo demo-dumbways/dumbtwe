@@ -1,77 +1,76 @@
+let threads = []
+
 async function addThread() {
-    const content = document.getElementById("content").value
-    const hastag = document.getElementById("hastag").value
-    const photo = document.getElementById("file-photo").files[0]
-    const video = document.getElementById("file-video").files[0]
+  const content = document.getElementById("content").value
+  const hastag = document.getElementById("hastag").value
+  const photo = document.getElementById("file-photo").files[0]
+  const video = document.getElementById("file-video").files[0]
 
-    // const { data: dataThumbnailPhoto, error: errorThumbnailPhoto } = await kontenbaseClient.storage.upload(photo);
-    // const { data: dataThumbnailVideo, error: errorThumbnailVideo } = await kontenbaseClient.storage.upload(video);
+  let thread = {
+    content,
+    hastag,
+  }
 
-    // let thread = {
-    //     content,
-    //     hastag,
-    //     photo: [dataThumbnailPhoto],
-    //     video: [dataThumbnailVideo]
-    // }
+  if (photo) {
+    const { data: dataThumbnailPhoto, error: errorThumbnailPhoto } = await kontenbaseClient.storage.upload(photo);
+    thread.photo = [dataThumbnailPhoto]
+  }
 
-    // await kontenbaseClient.service('thread').create(thread);
+  if (video) {
+    const { data: dataThumbnailVideo, error: errorThumbnailVideo } = await kontenbaseClient.storage.upload(video);
+    thread.video = [dataThumbnailVideo]
 
-    getData()
+  }
+
+  // if (errorThumbnailPhoto) {
+  //   return console.log(errorThumbnailPhoto);
+  // }
+
+
+
+  await kontenbaseClient.service('thread').create(thread);
+
+  getData()
 }
 
 function changeName() {
-    const photo = document.getElementById("file-photo").files[0]
-    const photoElement = document.getElementById("photo-name")
+  const photo = document.getElementById("file-photo").files[0]
+  const photoElement = document.getElementById("photo-name")
 
-    const video = document.getElementById("file-video").files[0]
-    const videoElement = document.getElementById("video-name")
+  const video = document.getElementById("file-video").files[0]
+  const videoElement = document.getElementById("video-name")
 
-    if (photo) {
-        photoElement.innerHTML = photo.name
-    }
-    if (video) {
-        videoElement.innerHTML = video.name
-    }
+  if (photo) {
+    photoElement.innerHTML = photo.name
+  }
+  if (video) {
+    videoElement.innerHTML = video.name
+  }
 }
 
 async function getData() {
-    const { data, error } = await kontenbaseClient.service('thread').find();
+  const { data, error } = await kontenbaseClient.service('thread').find();
 
-    if (data) {
-        thread = data;
-        renderProject();
-    } else {
-        console.log(error);
-    }
+  // console.log(data);
+  if (data) {
+    threads = data;
+    renderThread();
+  } else {
+    console.log(error);
+  }
 }
 
-const data = [
-    {
-        content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, eos!Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, eos!",
-        like: "234"
-    },
-    {
-        content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
-        like: "34"
-    },
-    {
-        content: "Doloribus, eos!Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, eos!",
-        like: "24"
-    },
-    {
-        content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, eos!Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, eos!",
-        like: "2"
-    },
-]
-
-async function renderThread() {
-    let threadContainer = document.getElementById("thread-container")
-    // console.log(threadContainer);
-    for (let i = 0; i < data.length; i++) {
-        threadContainer.innerHTML += `
+function renderThread() {
+  console.log(threads);
+  let threadContainer = document.getElementById("thread-container")
+  threadContainer.innerHTML = ''
+  // console.log(threadContainer);
+  for (let i = 0; i < threads.length; i++) {
+    const isLogin = false
+    threadContainer.innerHTML += `
         <div class="card p-20 view-thread" onclick="location.href='detail-thread.html'">
           <div class="left">
-            <img src="./assets/img/profile-1.jpg" alt="">
+          <img src="./assets/img/profile-1.jpg" alt="">
           </div>
           <div class="right">
             <div class="top">
@@ -89,14 +88,14 @@ async function renderThread() {
             </div>
             <div class="content-thread">
               <p>
-                ${data[i].content}
+                ${threads[i].content}
               </p>
-              <img src="./assets/img/thread-1.jpg" alt="">
+              ${threads[i].photo ? `<img src=" ${threads[i].photo[0].url}" alt="">` : ''}
             </div>
             <div class="bottom">
               <div class="react-view">
                 <div class="react-group">
-                  <i class="fa-solid fa-heart"></i> <span>742k</span>
+                  <i class="fa-solid fa-heart"></i> <span>345<span>
                 </div>
                 <div class="react-group">
                   <i class="fa-solid fa-comment-dots"></i> <span>142</span>
@@ -115,11 +114,11 @@ async function renderThread() {
         </div>
         `
 
-    }
+  }
 }
 
 renderThread()
 
-// getData();
+getData();
 
 

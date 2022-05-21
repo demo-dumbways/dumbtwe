@@ -33,7 +33,6 @@ async function login() {
     })
 
     window.location.href = "beranda.html"
-
 }
 
 async function logout() {
