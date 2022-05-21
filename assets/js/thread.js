@@ -22,15 +22,23 @@ async function addThread() {
 
   }
 
-  // if (errorThumbnailPhoto) {
-  //   return console.log(errorThumbnailPhoto);
-  // }
-
-
 
   await kontenbaseClient.service('thread').create(thread);
 
-  getData()
+  document.getElementById("form-thread").reset()
+  getThreads()
+}
+
+async function getThreads() {
+  const { data, error } = await kontenbaseClient.service('thread').find();
+
+  // console.log(data);
+  if (data) {
+    threads = data;
+    renderThreads();
+  } else {
+    console.log(error);
+  }
 }
 
 function changeName() {
@@ -48,19 +56,7 @@ function changeName() {
   }
 }
 
-async function getData() {
-  const { data, error } = await kontenbaseClient.service('thread').find();
-
-  // console.log(data);
-  if (data) {
-    threads = data;
-    renderThread();
-  } else {
-    console.log(error);
-  }
-}
-
-function renderThread() {
+function renderThreads() {
   console.log(threads);
   let threadContainer = document.getElementById("thread-container")
   threadContainer.innerHTML = ''
@@ -68,7 +64,7 @@ function renderThread() {
   for (let i = 0; i < threads.length; i++) {
     const isLogin = false
     threadContainer.innerHTML += `
-        <div class="card p-20 view-thread" onclick="location.href='detail-thread.html'">
+        <div class="card p-20 view-thread" onclick="location.href='detail-thread.html?id=${threads[i]._id}'">
           <div class="left">
           <img src="./assets/img/profile-1.jpg" alt="">
           </div>
@@ -117,8 +113,8 @@ function renderThread() {
   }
 }
 
-renderThread()
+renderThreads()
 
-getData();
+getThreads();
 
 

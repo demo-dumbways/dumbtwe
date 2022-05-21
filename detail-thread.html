@@ -5,6 +5,8 @@
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="./assets/css/beranda.css">
+  <script src="https://cdn.jsdelivr.net/npm/@kontenbase/sdk"></script>
+
   <title>Detail Thread</title>
 </head>
 
@@ -99,105 +101,7 @@
       </div>
     </div>
 
-    <div class="middle-side">
-      <div class="card p-20">
-        <div class="view-thread">
-          <div class="left">
-            <img src="./assets/img/profile.jpg" alt="">
-          </div>
-          <div class="right">
-            <div class="top">
-              <div class="profile-user">
-                <div>
-                  <h3>Ilham Fathullah</h3>
-                  <span>@ilham</span>
-                </div>
-                <span>33 minutes ago</span>
-              </div>
-              <div class="options">
-                <i class="fa-solid fa-ellipsis"></i>
-              </div>
-            </div>
-            <div class="content-thread">
-              <p>
-                Hello World
-              </p>
-            </div>
-            <div class="bottom">
-              <div class="react-view">
-                <div class="react-group">
-                  <i class="fa-solid fa-heart"></i> <span>742k</span>
-                </div>
-                <div class="react-group">
-                  <i class="fa-solid fa-comment-dots"></i> <span>142</span>
-                </div>
-              </div>
-              <div class="react-button">
-                <button class="btn-like">
-                  <i class="fa-solid fa-heart"></i> Like
-                </button>
-                <button class="btn-comment">
-                  <i class="fa-solid fa-comment-dots"></i> Comment
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <hr />
-
-        <div class="view-thread">
-          <div class="left">
-            <img src="./assets/img/profile-1.jpg" alt="">
-          </div>
-          <div class="right">
-            <div class="top">
-              <div class="profile-user">
-                <div>
-                  <h3>Tom Cruise</h3>
-                  <span>@tomtom</span>
-                  <span>1j</span>
-                </div>
-              </div>
-              <div class="options">
-                <i class="fa-solid fa-ellipsis"></i>
-              </div>
-            </div>
-            <div class="detail-content-thread">
-              <p>
-                Hello there, its nice to be there right?
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <hr />
-
-        <div class="view-thread">
-          <div class="left">
-            <img src="./assets/img/profile-2.jpg" alt="">
-          </div>
-          <div class="right">
-            <div class="top">
-              <div class="profile-user">
-                <div>
-                  <h3>Samsul Rijal</h3>
-                  <span>@tomtom</span>
-                  <span>45mnt</span>
-                </div>
-              </div>
-              <div class="options">
-                <i class="fa-solid fa-ellipsis"></i>
-              </div>
-            </div>
-            <div class="detail-content-thread">
-              <p>
-                its pleasure to be there
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="middle-side" id="thread-detail">
     </div>
 
     <div class="right-side">
@@ -241,7 +145,7 @@
       </div>
     </div>
   </div>
-
+  <script src="./assets/js/detail-thread.js"></script>
 </body>
 
 </html>

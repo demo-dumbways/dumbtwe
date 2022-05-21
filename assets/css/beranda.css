@@ -302,6 +302,7 @@ input:focus {
   height: 45px;
   border-radius: 50%;
   object-fit: cover;
+  margin-top: 10px;
 }
 
 .view-thread .right {
