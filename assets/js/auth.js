@@ -1,4 +1,4 @@
-const API_KEY = '4d72be8d-f73a-406d-a9b8-303556d65731'
+const API_KEY = '418b6bfa-1779-4233-a788-7c0f7ac40251'
 
 const kontenbaseClient = new kontenbase.KontenbaseClient({
     apiKey: API_KEY
