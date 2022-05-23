@@ -44,6 +44,7 @@ function renderDetailThread(data) {
               <p>
                 ${data.content}
               </p>
+              ${data.photo ? `<img src="${data.photo[0].url}" alt="">` : ''}
             </div>
             <div class="bottom">
               <div class="react-view">
@@ -74,7 +75,7 @@ function renderDetailThread(data) {
 async function deleteThread() {
     const { data, error } = await kontenbaseClient.service('thread').deleteById(id)
 
-    window.location.href = "beranda.html"
+    // window.location.href = "beranda.html"
 }
 
 getDetailThread()
