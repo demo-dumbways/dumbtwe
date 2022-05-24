@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./assets/css/beranda.css">
     <script src="https://cdn.jsdelivr.net/npm/@kontenbase/sdk"></script>
 
-    <title>Edit Profile</title>
+    <title>Beranda</title>
 </head>
 
 <body>
@@ -19,7 +19,7 @@
         </div>
 
         <div class="middle">
-            <input type="text" placeholder="explore">
+            <input id="search-bar" type="text">
         </div>
 
         <div class="right">
@@ -38,10 +38,11 @@
                     <img src="./assets/img/backdrop.jpg" alt="">
                 </div>
                 <div class="biodata">
-                    <img src="./assets/img/profile.jpg" alt="">
-                    <h3>Ilham Fathullah</h3>
-                    <p class="username">@ilfat_fathul</p>
-                    <p class="bio">Play Hard, Study Hard, Istira Hard</p>
+                    <img src="./assets/img/profile-1.jpg" alt="" id="avatar-profile"
+                        style="height: 85px; object-fit: cover;">
+                    <h3 id="fullname">Ilham Fathullah</h3>
+                    <p class="username" id="username">@ilfat_fathul</p>
+                    <p class="bio" id="biodata">Play Hard, Study Hard, Istira Hard</p>
                 </div>
                 <hr>
                 <div class="follow">
@@ -54,6 +55,8 @@
                         <p>followers</p>
                     </div>
                 </div>
+                <hr>
+                <a href="edit-profile.html">Edit Profile</a>
                 <hr>
                 <a href="my-thread.html">My Thread</a>
             </div>
@@ -100,46 +103,8 @@
         </div>
 
         <div class="middle-side">
-            <div class="card p-20 edit-profile">
-                <form>
-                    <div class="group-file">
-                        <img src="./assets/img/profile.jpg" alt="" id="thumbnail-preview"
-                            style="height:100px; object-fit: cover;">
-                        <label for="file-photo">
-                            <i class="fa-solid fa-image"></i><span id="photo-name"> Choose File</span>
-                        </label>
-                        <input type="file" id="file-photo" hidden onchange="changeName()">
-                    </div>
+            <div id="thread-container">
 
-                    <div class="group-input">
-                        <label for="fullname">Full Name</label>
-                        <input type="text" id="fullname">
-                    </div>
-
-                    <div class="group-input">
-                        <label for="username">Username</label>
-                        <input type="text" id="username">
-                    </div>
-
-                    <div class="group-input">
-                        <label for="email">Email</label>
-                        <input type="text" id="email">
-                    </div>
-
-                    <div class="group-input">
-                        <label for="biodata">Biodata</label>
-                        <textarea name="biodata" id="biodata" rows="5">Everything</textarea>
-                    </div>
-
-                    <div class="group-btn">
-                        <div class="btn-cancel">
-                            <button type="button" onclick="location.href='beranda.html'">Cancel</button>
-                        </div>
-                        <div class="btn-save">
-                            <button type="button" onclick="profileEdit()">Save</button>
-                        </div>
-                    </div>
-                </form>
             </div>
         </div>
 
@@ -149,7 +114,7 @@
                 <div class="list-trend">
                     <div class="trend">
                         <div class="left-trend">
-                            <a href="data-hashtag.html">
+                            <a href="">
                                 <h4>#SpiderMan</h4>
                             </a>
                             <p>87K Tweets</p>
@@ -184,7 +149,8 @@
             </div>
         </div>
     </div>
-    <script src="./assets/js/user.js"></script>
+    <script src="./assets/js/hastag.js"></script>
+
 </body>
 
 </html>

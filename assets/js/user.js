@@ -5,19 +5,27 @@ const kontenbaseClient = new kontenbase.KontenbaseClient({
 })
 
 async function profileEdit() {
-    let image = document.getElementById('file-photo').files[0];
+    let avatar = document.getElementById('file-photo').files[0];
     let name = document.getElementById("fullname").value
     let username = document.getElementById("username").value
     let email = document.getElementById("email").value
     let biodata = document.getElementById("biodata").value
 
-    const { data, error } = await kontenbaseClient.auth.update({
+    let user = {
         firstName: name,
-        username
-    });
+        username,
+        biodata
+    }
+    if (avatar) {
+        const { data: dataAvatar, error: errorAvatar } = await kontenbaseClient.storage.upload(avatar);
+        user.avatar = [dataAvatar]
+    }
 
-    alert("Edit Profile Succes")
-    renderUserInfo()
+    const { data, error } = await kontenbaseClient.auth.update(user);
+
+    // alert("Edit Profile Succes")
+    // renderUserInfo()
+    window.location.href = "beranda.html"
 }
 
 async function renderUserInfo() {
@@ -28,6 +36,19 @@ async function renderUserInfo() {
     document.getElementById("username").value = user.username ? user.username : ""
     document.getElementById("email").value = user.email
     // console.log(userData);
+}
+
+function changeName() {
+    const photo = document.getElementById("file-photo").files[0]
+    const photoElement = document.getElementById("photo-name")
+
+    if (photo) {
+        photoElement.innerHTML = photo.name
+    }
+
+    let thumbnailPreview = document.getElementById('thumbnail-preview');
+    let imgPreview = URL.createObjectURL(photo);
+    thumbnailPreview.src = imgPreview;
 }
 
 renderUserInfo()

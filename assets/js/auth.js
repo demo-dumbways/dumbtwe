@@ -43,4 +43,34 @@ async function logout() {
 
 }
 
-let age = "ilham"
+async function renderProfile() {
+    const { user, error } = await kontenbaseClient.auth.user();
+    if (user) {
+        let avatarProfile = document.getElementById("avatar-profile")
+        let avatarThread = document.getElementById("avatar-thread")
+        // console.log(avatar);
+
+        let fullname = document.getElementById("fullname")
+        let username = document.getElementById("username")
+        let biodata = document.getElementById("biodata")
+
+        fullname.innerHTML = user.firstName
+        if (user.username) {
+            username.innerHTML = '@' + user.username
+        } else {
+            username.innerHTML = '@'
+        }
+
+        if (user.biodata) {
+            biodata.innerHTML = user.biodata
+        } else {
+            biodata.innerHTML = '-'
+        }
+
+        avatarProfile.src = user.avatar[0].url
+        avatarThread.src = user.avatar[0].url
+    }
+
+}
+
+renderProfile()

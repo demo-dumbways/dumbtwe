@@ -22,7 +22,6 @@ async function addThread() {
 
   }
 
-
   await kontenbaseClient.service('thread').create(thread);
 
   document.getElementById("form-thread").reset()
@@ -39,6 +38,8 @@ async function getThreads() {
   } else {
     console.log(error);
   }
+
+  localStorage.removeItem("hastag")
 }
 
 function changeName() {
@@ -56,7 +57,7 @@ function changeName() {
   }
 }
 
-function renderThreads() {
+async function renderThreads() {
   console.log(threads);
   let threadContainer = document.getElementById("thread-container")
   threadContainer.innerHTML = ''
@@ -66,15 +67,15 @@ function renderThreads() {
     threadContainer.innerHTML += `
         <div class="card p-20 view-thread" onclick="location.href='detail-thread.html?id=${threads[i]._id}'">
           <div class="left">
-          <img src="./assets/img/profile-1.jpg" alt="">
+          <img src="${threads[i].owner.avatar[0].url}" alt="">
           </div>
           <div class="right">
             <div class="top">
               <div class="profile-user">
                 <div>
-                  <h3>Tom Cruise</h3>
+                  <h3>${threads[i].owner.firstName}</h3>
                   <span><i class="fa-solid fa-circle-check"></i></span>
-                  <span>@tomtom</span>
+                  <span>@${threads[i].owner.username}</span>
                 </div>
                 <span>33 minutes ago</span>
               </div>
@@ -86,6 +87,11 @@ function renderThreads() {
               <p>
                 ${threads[i].content}
               </p>
+              <a onclick="navigateHastag('${threads[i].hastag}'); event.stopPropagation()">
+                <p>
+                  #${threads[i].hastag}
+                </p>
+              </a>
               ${threads[i].photo ? `<img src=" ${threads[i].photo[0].url}" alt="">` : ''}
             </div>
             <div class="bottom">
@@ -111,6 +117,12 @@ function renderThreads() {
         `
 
   }
+}
+
+function navigateHastag(hastag) {
+  localStorage.setItem('hastag', hastag);
+
+  window.location.href = "data-hastag.html"
 }
 
 renderThreads()
