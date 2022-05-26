@@ -73,7 +73,7 @@ body {
 
 .content div.left-side,
 .content div.right-side {
-  flex: 20%
+  flex: 20%;
 }
 
 .content div.middle-side {
@@ -156,7 +156,6 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 10px;
-
 }
 
 .list-follow .suggest div:nth-child(odd) {
@@ -165,7 +164,6 @@ body {
 
 .list-follow .suggest div:nth-child(2) {
   flex: 2;
-
 }
 
 .suggest .avatar img {
@@ -416,6 +414,14 @@ input:focus {
   background-color: #218a6b;
 }
 
+.view-thread .right .bottom .react-button button.btn-dislike {
+  background-color: #ff3c3c;
+}
+
+.view-thread .right .bottom .react-button button.btn-dislike:hover {
+  background-color: #c2c2c2;
+}
+
 .right-side .trend {
   display: flex;
   align-items: center;
@@ -517,7 +523,7 @@ textarea {
 }
 
 .btn-user-follow {
-  background-color: #00C2FF;
+  background-color: #00c2ff;
   color: #fff;
   border: none;
   padding: 8px 20px;
@@ -526,4 +532,67 @@ textarea {
 
 .edit-profile h1 {
   text-align: center;
+}
+
+.mt-4 {
+  margin-top: 20px;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.comment-thread .right textarea {
+  background-color: #4e657c;
+  color: #e0e4e8;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  resize: none;
+  padding: 10px;
+  margin-bottom: 8px;
+}
+
+.comment-thread .right textarea:focus,
+input:focus {
+  color: #c0cad3;
+  outline: none;
+}
+
+.comment-thread .right textarea::placeholder {
+  color: #9f9f9f;
+}
+
+.comment-thread .right .btn-publish button {
+  padding: 7px 20px;
+  border-radius: 20px;
+  border: none;
+  background-color: #00b7df;
+  font-weight: 700;
+  color: #263849;
+  cursor: pointer;
+}
+
+.comment-thread #comment-list {
+  margin-top: 20px;
+  background-color: #23313f;
+  border-radius: 10px;
+  font-size: 14px;
+  padding: 10px;
+}
+
+.comment-thread #comment-list .comment-item {
+  padding: 10px;
+  border-bottom: 2px solid #1c2936;
+}
+
+.comment-thread #comment-list .comment-item .comment-name {
+  font-size: 12px;
+  color: rgb(147, 147, 147);
+  margin-bottom: 4;
+}
+
+.comment-thread #comment-list .comment-item .comment-message {
+  color: rgb(255, 255, 255);
+  font-size: 15px;
 }

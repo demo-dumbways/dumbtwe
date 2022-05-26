@@ -1,76 +1,72 @@
-const API_KEY = '418b6bfa-1779-4233-a788-7c0f7ac40251'
+const API_KEY = '1c375960-d74a-4127-83b5-a3ca224b966b';
 
 const kontenbaseClient = new kontenbase.KontenbaseClient({
-    apiKey: API_KEY
-})
+  apiKey: API_KEY,
+});
 
 async function register() {
+  let name = document.getElementById('input-name').value;
+  let email = document.getElementById('input-email').value;
+  let username = document.getElementById('input-username').value;
+  let password = document.getElementById('input-password').value;
 
-    let name = document.getElementById("input-name").value
-    let email = document.getElementById("input-email").value
-    let username = document.getElementById("input-username").value
-    let password = document.getElementById("input-password").value
+  const { user, token, error } = await kontenbaseClient.auth.register({
+    firstName: name,
+    email: email,
+    username: username,
+    password: password,
+  });
 
-    const { user, token, error } = await kontenbaseClient.auth.register({
-        firstName: name,
-        email: email,
-        username: username,
-        password: password,
-    })
-
-    window.location.href = "login.html"
-
+  window.location.href = 'login.html';
 }
 
 async function login() {
+  let email = document.getElementById('input-email').value;
+  let password = document.getElementById('input-password').value;
 
-    let email = document.getElementById("input-email").value
-    let password = document.getElementById("input-password").value
+  const { user, token, error } = await kontenbaseClient.auth.login({
+    email: email,
+    password: password,
+  });
 
-    const { user, token, error } = await kontenbaseClient.auth.login({
-        email: email,
-        password: password,
-    })
-
-    window.location.href = "beranda.html"
+  window.location.href = 'beranda.html';
 }
 
 async function logout() {
+  const { user, error } = await kontenbaseClient.auth.logout();
 
-    const { user, error } = await kontenbaseClient.auth.logout()
-
-    window.location.href = "index.html"
-
+  window.location.href = 'index.html';
 }
 
 async function renderProfile() {
-    const { user, error } = await kontenbaseClient.auth.user();
-    if (user) {
-        let avatarProfile = document.getElementById("avatar-profile")
-        let avatarThread = document.getElementById("avatar-thread")
-        // console.log(avatar);
+  const { user, error } = await kontenbaseClient.auth.user();
+  if (user) {
+    let avatarProfile = document.getElementById('avatar-profile');
+    let avatarThread = document.getElementById('avatar-thread');
+    // console.log(avatar);
 
-        let fullname = document.getElementById("fullname")
-        let username = document.getElementById("username")
-        let biodata = document.getElementById("biodata")
+    let fullname = document.getElementById('fullname');
+    let username = document.getElementById('username');
+    let biodata = document.getElementById('biodata');
 
-        fullname.innerHTML = user.firstName
-        if (user.username) {
-            username.innerHTML = '@' + user.username
-        } else {
-            username.innerHTML = '@'
-        }
-
-        if (user.biodata) {
-            biodata.innerHTML = user.biodata
-        } else {
-            biodata.innerHTML = '-'
-        }
-
-        avatarProfile.src = user.avatar[0].url
-        avatarThread.src = user.avatar[0].url
+    fullname.innerHTML = user.firstName;
+    if (user.username) {
+      username.innerHTML = '@' + user.username;
+    } else {
+      username.innerHTML = '@';
     }
 
+    if (user.biodata) {
+      biodata.innerHTML = user.biodata;
+    } else {
+      biodata.innerHTML = '-';
+    }
+
+    if (user.avatar) {
+      avatarProfile.src = user.avatar[0]?.url;
+      avatarThread.src = user.avatar[0]?.url;
+    }
+  }
 }
 
-renderProfile()
+renderProfile();
