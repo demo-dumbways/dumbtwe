@@ -1,6 +1,5 @@
 <html>
   <head>
-    <link rel="stylesheet" href="./assets/css/beranda.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -8,6 +7,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="./assets/css/beranda.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@kontenbase/sdk"></script>
     <title>Homepage Another Thread</title>
   </head>
 
@@ -15,14 +16,19 @@
     <nav class="navbar">
       <div class="left">
         <a href="beranda.html">
-          <i class="fa-brands fa-twitter text-info"></i>
+          <i class="fa-brands fa-twitter"></i>
         </a>
       </div>
+  
       <div class="middle">
-        <input type="text" placeholder="explore" />
+        <input type="text" placeholder="explore">
       </div>
+  
       <div class="right">
-        <a href="">Logout</a>
+        <a href="verification.html">
+          <i class="fa-solid fa-circle-check"></i>
+        </a>
+        <a class="logout" href="#" onclick="logout()">Logout</a>
         <i class="fa-solid fa-expand"></i>
       </div>
     </nav>
@@ -31,13 +37,13 @@
       <div class="left-side">
         <div class="card profile">
           <div class="banner">
-            <img src="./assets/img/backdrop-user2.png" alt="" />
+            <img src="./assets/img/backdrop.jpg" alt="" />
           </div>
           <div class="biodata">
-            <img src="./assets/img/profile-user2.png" alt="" />
-            <h3>Samsul Rijal</h3>
-            <p class="username">@sams</p>
-            <p class="bio">never ending pursuit</p>
+            <img src="./assets/img/default-user.jpeg" alt="" />
+            <h3 id="fullname">Samsul Rijal</h3>
+            <p class="username" id="username">@sams</p>
+            <p class="bio" id="biodata">never ending pursuit</p>
           </div>
           <hr />
           <div class="follow">
@@ -99,138 +105,8 @@
         </div>
       </div>
 
-      <div class="middle">
-        <div class="card p-20 view-thread view-another-thread">
-          <div class="left">
-            <img src="./assets/img/thread-comment2.png" alt="" />
-          </div>
-          <div class="right">
-            <div class="top">
-              <div class="profile-user">
-                <div>
-                  <h3>Samsul Rijal</h3>
-                  <span>@sams</span>
-                </div>
-                <span> 23 minutes ago</span>
-              </div>
-
-              <div class="options">
-                <i class="fa-solid fa-ellipsis"></i>
-              </div>
-            </div>
-            <div class="content-thread">
-              <p>
-                Happy engagement
-              </p>
-              <img src="./assets/img/thread-3.png" alt="" />
-            </div>
-            <div class="bottom">
-              <div class="react-view">
-                <div class="react-group">
-                  <i class="fa-solid fa-heart"></i> <span>22k</span>
-                </div>
-                <div class="react-group">
-                  <i class="fa-solid fa-comment-dots"></i> <span>7</span>
-                </div>
-              </div>
-              <div class="react-button">
-                <button class="btn-like">
-                  <i class="fa-solid fa-heart"></i> Like
-                </button>
-                <button class="btn-comment">
-                  <i class="fa-solid fa-comment-dots"></i> Comment
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card p-20 view-thread">
-          <div class="left">
-            <img src="./assets/img/thread-comment2.png" alt="" />
-          </div>
-          <div class="right">
-            <div class="top">
-              <div class="profile-user">
-                <div>
-                    <h3>Samsul Rijal</h3>
-                    <span>@sams</span>
-                </div>
-                <span> 54 minutes ago</span>
-              </div>
-
-              <div class="options">
-                <i class="fa-solid fa-ellipsis"></i>
-              </div>
-            </div>
-            <div class="content-thread">
-              <p>
-                back to nature guys
-              </p>
-
-              <img src="./assets/img/thread-4.png" alt="" />
-            </div>
-            <div class="bottom">
-              <div class="react-view">
-                <div class="react-group">
-                  <i class="fa-solid fa-heart"></i> <span>742k</span>
-                </div>
-                <div class="react-group">
-                  <i class="fa-solid fa-comment-dots"></i> <span>142</span>
-                </div>
-              </div>
-              <div class="react-button">
-                <button class="btn-like">
-                  <i class="fa-solid fa-heart"></i> Like
-                </button>
-                <button class="btn-comment">
-                  <i class="fa-solid fa-comment-dots"></i> Comment
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card p-20 view-thread">
-          <div class="left">
-            <img src="./assets/img/thread-comment2.png" alt="" />
-          </div>
-          <div class="right">
-            <div class="top">
-              <div class="profile-user">
-                <div>
-                    <h3>Samsul Rijal</h3>
-                    <span>@sams</span>
-                  </div>
-                <span> 1 hours ago</span>
-              </div>
-              <div class="options">
-                <i class="fa-solid fa-ellipsis"></i>
-              </div>
-            </div>
-            <div class="content-thread">
-              <p>
-                Hello World 🌏
-              </p>
-            </div>
-            <div class="bottom">
-              <div class="react-view">
-                <div class="react-group">
-                  <i class="fa-solid fa-heart"></i> <span>27k</span>
-                </div>
-                <div class="react-group">
-                  <i class="fa-solid fa-comment-dots"></i> <span>10</span>
-                </div>
-              </div>
-              <div class="react-button">
-                <button class="btn-like">
-                  <i class="fa-solid fa-heart"></i> Like
-                </button>
-                <button class="btn-comment">
-                  <i class="fa-solid fa-comment-dots"></i> Comment
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="middle-side">
+        <div id="thread-container"></div>
       </div>
 
       <div class="right-side">
@@ -299,5 +175,6 @@
         </div>
       </div>
     </div>
+    <script src="./assets/js/another-user.js"></script>
   </body>
 </html>

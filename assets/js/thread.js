@@ -73,13 +73,15 @@ async function renderThreads() {
           <img src="${
             threads[i].owner.avatar
               ? threads[i].owner.avatar[0].url
-              : '/assets/img/user-thread.png'
+              : '/assets/img/default-user.jpeg'
           }" alt="">
           </div>
           <div class="right">
             <div class="top">
               <div class="profile-user">
-                <div>
+                <div onclick="location.href = 'another-thread.html?id=${
+                  threads[i].owner._id
+                }'; event.stopPropagation()">
                   <h3>${threads[i].owner.firstName}</h3>
                   <span><i class="fa-solid fa-circle-check"></i></span>
                   <span>${

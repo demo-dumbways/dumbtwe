@@ -29,7 +29,9 @@ async function login() {
     password: password,
   });
 
-  window.location.href = 'beranda.html';
+  if (!error) {
+    window.location.href = 'beranda.html';
+  }
 }
 
 async function logout() {
