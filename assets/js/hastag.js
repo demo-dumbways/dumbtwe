@@ -1,36 +1,36 @@
-const API_KEY = '418b6bfa-1779-4233-a788-7c0f7ac40251'
+const API_KEY = 'aea64958-96f0-45dc-b3cc-e9991afd890e'
 
 const kontenbaseClient = new kontenbase.KontenbaseClient({
-    apiKey: API_KEY
+  apiKey: API_KEY
 })
 
 let threads = []
 
 
 async function getThreads() {
-    const hastag = localStorage.getItem("hastag")
-    document.getElementById("search-bar").value = '#' + hastag
+  const hastag = localStorage.getItem("hastag")
+  document.getElementById("search-bar").value = '#' + hastag
 
-    const { data, error } = await kontenbaseClient.service('thread').find({
-        where: { hastag: hastag },
-    })
+  const { data, error } = await kontenbaseClient.service('thread').find({
+    where: { hastag: hastag },
+  })
 
-    if (data) {
-        threads = data;
-        renderThreads();
-    } else {
-        console.log(error);
-    }
+  if (data) {
+    threads = data;
+    renderThreads();
+  } else {
+    console.log(error);
+  }
 }
 
 async function renderThreads() {
-    console.log(threads);
-    let threadContainer = document.getElementById("thread-container")
-    threadContainer.innerHTML = ''
-    // console.log(threadContainer);
-    for (let i = 0; i < threads.length; i++) {
-        const isLogin = false
-        threadContainer.innerHTML += `
+  console.log(threads);
+  let threadContainer = document.getElementById("thread-container")
+  threadContainer.innerHTML = ''
+  // console.log(threadContainer);
+  for (let i = 0; i < threads.length; i++) {
+    const isLogin = false
+    threadContainer.innerHTML += `
           <div class="card p-20 view-thread" onclick="location.href='detail-thread.html?id=${threads[i]._id}'">
             <div class="left">
             <img src="${threads[i].owner.avatar[0].url}" alt="">
@@ -81,33 +81,33 @@ async function renderThreads() {
             </div>
           </div>
           `
-    }
+  }
 }
 
 async function renderProfile() {
 
-    const { user, error } = await kontenbaseClient.auth.user();
+  const { user, error } = await kontenbaseClient.auth.user();
 
-    let avatarProfile = document.getElementById("avatar-profile")
+  let avatarProfile = document.getElementById("avatar-profile")
 
-    let fullname = document.getElementById("fullname")
-    let username = document.getElementById("username")
-    let biodata = document.getElementById("biodata")
+  let fullname = document.getElementById("fullname")
+  let username = document.getElementById("username")
+  let biodata = document.getElementById("biodata")
 
-    fullname.innerHTML = user.firstName
-    if (user.username) {
-        username.innerHTML = '@' + user.username
-    } else {
-        username.innerHTML = '@'
-    }
+  fullname.innerHTML = user.firstName
+  if (user.username) {
+    username.innerHTML = '@' + user.username
+  } else {
+    username.innerHTML = '@'
+  }
 
-    if (user.biodata) {
-        biodata.innerHTML = user.biodata
-    } else {
-        biodata.innerHTML = '-'
-    }
+  if (user.biodata) {
+    biodata.innerHTML = user.biodata
+  } else {
+    biodata.innerHTML = '-'
+  }
 
-    avatarProfile.src = user.avatar[0].url
+  avatarProfile.src = user.avatar[0].url
 
 }
 
