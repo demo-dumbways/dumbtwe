@@ -45,24 +45,30 @@ async function logout() {
 
 }
 
-async function renderProfile(){
-    const {user, error} = await kontenbaseClient.auth.user()
-    if(user){
+async function renderProfile() {
+    const { user, error } = await kontenbaseClient.auth.user({
+        lookup: ['following', 'followers']
+    })
+    if (user) {
         let avatarProfile = document.getElementById("avatar-profile")
         let threadProfile = document.getElementById("avatar-thread")
 
         let fullname = document.getElementById("fullname")
         let username = document.getElementById("username")
         let biodata = document.getElementById("biodata")
+        let followers = document.getElementById("followers")
+        let following = document.getElementById("following")
 
+        followers.innerHTML = user.followers.length
+        following.innerHTML = user.following.length
         fullname.innerHTML = user.firstName
-        if(user.username){
+        if (user.username) {
             username.innerHTML = '@' + user.username
         } else {
             username.innerHTML = "@"
         }
 
-        if(user.biodata){
+        if (user.biodata) {
             biodata.innerHTML = user.biodata
         } else {
             biodata.innerHTML = "-"

@@ -18,7 +18,7 @@
         </div>
 
         <div class="middle">
-            <input type="text" placeholder="explore">
+            <input type="text" placeholder="explore" id="search" onkeypress="search(event)">
         </div>
 
         <div class="right">
@@ -45,11 +45,11 @@
                 <hr>
                 <div class="follow">
                     <div class="following">
-                        <h2>57k</h2>
+                        <h2 id="following">57k</h2>
                         <p>following</p>
                     </div>
                     <div class="followers">
-                        <h2>282</h2>
+                        <h2 id="followers">282</h2>
                         <p>followers</p>
                     </div>
                 </div>
@@ -100,7 +100,7 @@
             </div>
         </div>
 
-        <div class="middle-side">
+        <div class="middle-side" id="middle-side">
             <div class="card p-20 post-thread">
                 <div class="left">
                     <img src="./assets/img/profile.jpg" alt="" id="avatar-thread">
@@ -175,6 +175,7 @@
     </div>
     <script src="./assets/js/auth.js"></script>
     <script src="./assets/js/thread.js"></script>
+    <script src="./assets/js/search.js"></script>
 </body>
 
 </html>
