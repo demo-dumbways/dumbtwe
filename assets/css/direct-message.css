@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Navbar  Start*/
+
+body {
+  background-color: #122232;
+}
+
+.navbar {
+  display: flex;
+  padding: 5px 20px;
+  /* position: sticky;
+  top: 0;
+  background-color: #122232; */
+}
+
+.navbar div {
+  display: flex;
+  flex: 1;
+}
+
+.navbar .left i {
+  color: aqua;
+  font-size: 25px;
+}
+
+.navbar .middle {
+  justify-content: center;
+}
+
+.navbar .middle input {
+  width: 80%;
+  border: none;
+  border-radius: 5px;
+  padding: 0px 25px;
+  background-color: #334960;
+  text-align: center;
+  color: white;
+}
+
+.navbar .middle input::placeholder {
+  color: #90a2b4;
+  text-align: center;
+}
+
+.navbar .middle input:focus {
+  outline: none;
+}
+
+.navbar .right {
+  justify-content: flex-end;
+  align-items: center;
+  color: white;
+}
+
+.navbar .right a {
+  text-decoration: none;
+  color: #c0cad3;
+  background-color: #0c3b6b;
+  padding: 5px 20px;
+  border-radius: 15px;
+  font-size: 13px;
+  margin-left: 10px;
+}
+
+.navbar .right i {
+  color: white;
+  font-size: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* Navbar  End*/
+
+/* Content  Start*/
+.content {
+  display: flex;
+  margin: 20px 100px;
+}
+
+.content div.left-side {
+  flex: 30%;
+}
+
+.content div.right-side {
+  flex: 70%;
+}
+
+.me-20 {
+  margin-right: 20px;
+}
+
+.p-10-20 {
+  padding: 10px 20px;
+}
+
+.divider {
+  border: 0;
+  height: 2px;
+  background: #2e4c6b;
+  border-radius: 10px;
+  margin: 5px 0;
+}
+
+.card {
+  background-color: #263849;
+  border-radius: 16px;
+  color: white;
+  font-size: 10px;
+  overflow: hidden;
+}
+
+.content .user-group .user {
+  display: flex;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.content .user-group .user-active {
+  background-color: #334960;
+}
+
+.content .user-list .user-group .user:hover {
+  background-color: #2b4257;
+}
+
+.content .user-group .user img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.right-side .card .top {
+  padding: 0 10px;
+  background-color: #334960;
+}
+
+.right-side .card .chat {
+  padding: 10px;
+  margin: 10px 20px;
+  height: 550px;
+  overflow: auto;
+}
+
+.right-side .card .chat::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Handle */
+.right-side .card .chat::-webkit-scrollbar-thumb {
+  background: #334960;
+}
+
+.right-side .card .chat .chat-right {
+  text-align: right;
+}
+
+.right-side .card .chat .chat-left {
+  text-align: left;
+}
+
+.right-side .card .chat p {
+  background-color: #334960;
+  display: inline-block;
+  padding: 10px 13px;
+  border-radius: 20px;
+  font-size: 13px;
+  margin-top: 5px;
+  max-width: 350px;
+  text-align: left;
+}
+
+.right-side .card .bottom {
+  padding: 0px 30px;
+  padding-bottom: 20px;
+  background-color: #263849;
+}
+
+.right-side .card .bottom form {
+  display: flex;
+}
+
+.right-side .card .bottom input {
+  flex: 80%;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 15px;
+  background-color: #334960;
+  color: white;
+}
+
+.right-side .card .bottom input:focus {
+  outline: none;
+}
+
+.right-side .card .bottom button {
+  flex: 10%;
+  margin-left: 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: #00c2ff;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  color: #263849;
+}
