@@ -107,7 +107,9 @@ body {
 
 .profile .biodata img {
   border-radius: 50%;
-  width: 30%;
+  width: 83px;
+  height: 83px;
+  object-fit: cover;
   margin-bottom: 10px;
   margin-top: -40px;
 }
@@ -205,7 +207,9 @@ body {
 }
 
 .post-thread .left img {
-  width: 100%;
+  width: 47px;
+  height: 47px;
+  object-fit: cover;
   border-radius: 50%;
 }
 
@@ -445,8 +449,10 @@ input:focus {
 
 .edit-profile .group-file img {
   border-radius: 50%;
-  width: 13%;
+  width: 100px;
+  height: 100px;
   margin-right: 25px;
+  object-fit: cover;
 }
 
 .edit-profile .group-file {

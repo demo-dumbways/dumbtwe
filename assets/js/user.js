@@ -5,9 +5,9 @@ const kontenbaseClient = new kontenbase.KontenbaseClient({
     apiKey: API_KEY
 })
 
-async function renderUserInfo(){
+async function renderUserInfo() {
 
-    const {user, error} = await kontenbaseClient.auth.user()
+    const { user, error } = await kontenbaseClient.auth.user()
     console.log(user);
 
     document.getElementById("fullname").value = user.firstName
@@ -18,11 +18,11 @@ async function renderUserInfo(){
 
 renderUserInfo()
 
-function changeName(){
+function changeName() {
     const photo = document.getElementById("file-photo").files[0]
     const photoElement = document.getElementById("photo-name")
 
-    if(photo){
+    if (photo) {
         photoElement.innerHTML = photo.name
     }
 
@@ -31,7 +31,7 @@ function changeName(){
     thumbnailPreview.src = imgPreview
 }
 
-async function profileEdit(){
+async function profileEdit() {
 
     let avatar = document.getElementById("file-photo").files[0]
     let name = document.getElementById("fullname").value
@@ -44,13 +44,44 @@ async function profileEdit(){
         biodata
     }
 
-    if(avatar){
-        const {data, error} = await kontenbaseClient.storage.upload(avatar)
+    if (avatar) {
+        const { data, error } = await kontenbaseClient.storage.upload(avatar)
         userData.avatar = [data]
     }
 
-    const {user, error} = await kontenbaseClient.auth.update(userData)
+    const { user, error } = await kontenbaseClient.auth.update(userData)
     console.log(user);
 
     window.location.href = "beranda.html"
 }
+
+async function renderProfile() {
+    const { user, error } = await kontenbaseClient.auth.user()
+    if (user) {
+        let avatarProfile = document.getElementById("avatar-profile")
+        let previewProfile = document.getElementById("thumbnail-preview")
+
+        let fullname = document.getElementById("fullname")
+        let username = document.getElementById("username")
+        let biodata = document.getElementById("biodata")
+
+        fullname.innerHTML = user.firstName
+        if (user.username) {
+            username.innerHTML = '@' + user.username
+        } else {
+            username.innerHTML = "@"
+        }
+
+        if (user.biodata) {
+            biodata.innerHTML = user.biodata
+        } else {
+            biodata.innerHTML = "-"
+        }
+
+        avatarProfile.src = user.avatar[0].url
+        previewProfile.src = user.avatar[0].url
+    }
+
+}
+
+renderProfile()

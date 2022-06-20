@@ -6,16 +6,16 @@ const kontenbaseClient = new kontenbase.KontenbaseClient({
 
 let id = ''
 
-async function getDetailThread(){
+async function getDetailThread() {
     id = new URL(window.location.href).searchParams.get("id")
 
-    const {data, error} = await kontenbaseClient.service("thread").getById(id)
+    const { data, error } = await kontenbaseClient.service("thread").getById(id)
     console.log(data);
     renderDetailThread(data)
 }
 getDetailThread()
 
-async function renderDetailThread(data){
+async function renderDetailThread(data) {
 
     let thread = document.getElementById("thread-detail")
 
@@ -24,14 +24,14 @@ async function renderDetailThread(data){
         <div class="card p-20">
             <div class="view-thread">
                 <div class="left">
-                    <img src="./assets/img/profile.jpg" alt="">
+                ${data.owner.avatar[0] ? `<img src="${data.owner.avatar[0].url}" />` : ''}
                 </div>
                 <div class="right">
                     <div class="top">
                         <div class="profile-user">
                             <div>
-                                <h3>Ilham Fathullah</h3>
-                                <span>@ilham</span>
+                                <h3>${data.owner.firstName}</h3>
+                                <span>@${data.owner.username}</span>
                             </div>
                             <span>33 minutes ago</span>
                         </div>
@@ -59,19 +59,19 @@ async function renderDetailThread(data){
                             </div>
                         </div>
                         <div class="react-button">
-                            ${(await checkUserLike(data._id)) ? 
-                                `
+                            ${(await checkUserLike(data._id)) ?
+            `
                                 <button class="btn-dislike" onclick="dislikeThread('${data._id}'); event.stopPropagation()">
                                     <i class="fa-solid fa-heart"></i> Like
                                 </button>
                                 `
-                                :
-                                `
+            :
+            `
                                 <button class="btn-like" onclick="likeThread('${data._id}'); event.stopPropagation()">
                                     <i class="fa-solid fa-heart"></i> Like
                                 </button>
                                 `
-                            }
+        }
                             <button class="btn-comment" onclick="document.getElementById('comment-message').select()">
                                 <i class=" fa-solid fa-comment-dots"></i> Comment
                             </button>
@@ -84,9 +84,9 @@ async function renderDetailThread(data){
     `
 }
 
-async function renderEditThread(){
+async function renderEditThread() {
 
-    const {data, error} = await kontenbaseClient.service("thread").getById(id)
+    const { data, error } = await kontenbaseClient.service("thread").getById(id)
 
     let thread = document.getElementById("thread-detail")
 
@@ -121,23 +121,23 @@ async function renderEditThread(){
     `
 }
 
-function changeName(){
+function changeName() {
     const photo = document.getElementById("file-photo").files[0]
     const photoElement = document.getElementById("photo-name")
 
     const video = document.getElementById("file-video").files[0]
     const videoElement = document.getElementById("video-name")
 
-    if(photo){
+    if (photo) {
         photoElement.innerHTML = photo.name
     }
 
-    if(video){
+    if (video) {
         videoElement.innerHTML = video.name
     }
 }
 
-async function updateThread(){
+async function updateThread() {
     const content = document.getElementById("content").value
     const hastag = document.getElementById("hastag").value
     const photo = document.getElementById("file-photo").files[0]
@@ -148,113 +148,113 @@ async function updateThread(){
         hastag
     }
 
-    if(photo){
-        const {data, error} = await kontenbaseClient.storage.upload(photo)
+    if (photo) {
+        const { data, error } = await kontenbaseClient.storage.upload(photo)
         thread.photo = [data]
     }
 
-    if(video){
-        const {data, error} = await kontenbaseClient.storage.upload(video)
+    if (video) {
+        const { data, error } = await kontenbaseClient.storage.upload(video)
         thread.video = [data]
     }
 
     await kontenbaseClient.service("thread")
-    .updateById(id, thread)
-    
+        .updateById(id, thread)
+
     getDetailThread()
 }
 
-async function deleteThread(){
+async function deleteThread() {
 
     await kontenbaseClient.service("thread").deleteById(id)
 
     window.location.href = "beranda.html"
 }
 
-async function getThreadLike(id){
+async function getThreadLike(id) {
 
-    const {data, error} = await kontenbaseClient.service("like").count({
-      where: {thread: id}
+    const { data, error } = await kontenbaseClient.service("like").count({
+        where: { thread: id }
     })
-  
+
     return data.count;
 }
-  
-async function likeThread(id){
-    const {user, error: errorUser} = await kontenbaseClient.auth.user()
-  
-    if(errorUser){
-      return console.log(errorUser);
-    }
-  
-    const {data, error} = await kontenbaseClient.service("like").create({
-      thread: [id],
-      Users: [user._id]
-    })
-  
-    if(error){
-      console.log(error);
-    }
-  
-    getDetailThread()
-}
-  
-async function checkUserLike(threadId){
-  
-    const {user, error: errorUser} = await kontenbaseClient.auth.user()
-  
-    const {data, error } = await kontenbaseClient.service("like").find({
-      where: {
-        thread: [threadId],
-        Users: [user._id]
-      }
-    })
-  
-    const isLike = data.length != 0 ? true : false
-    return isLike
-}
-  
-async function dislikeThread(id){
-  
-    const {user, error: errorUser} = await kontenbaseClient.auth.user()
-  
-    const {data, error} = await kontenbaseClient.service("like").find({
-      where: {thread: id, Users: user._id},
-      lookup: '*'
-    })
-  
-    if(error || data.length == 0){
-      return console.log(error);
-    }
-  
-    const {error: errorLike} = await kontenbaseClient.service("like").deleteById(data[0]._id)
-  
-    if(errorLike){
-      return console.log(errorLike);
-    }
-  
-    getDetailThread()
-}
-  
-async function getThreadCommentCount(id){
-    const {data, error} = await kontenbaseClient.service("comment").count({
-      where: {thread: id}
-    })
-  
-    return data.count
-}
 
-async function commentThread(){
+async function likeThread(id) {
+    const { user, error: errorUser } = await kontenbaseClient.auth.user()
 
-    const message = document.getElementById("comment-message")
-
-    const {user, error: errorUser} = await kontenbaseClient.auth.user()
-
-    if(errorUser){
+    if (errorUser) {
         return console.log(errorUser);
     }
 
-    const {data, error} = await kontenbaseClient.service("comment").create({
+    const { data, error } = await kontenbaseClient.service("like").create({
+        thread: [id],
+        Users: [user._id]
+    })
+
+    if (error) {
+        console.log(error);
+    }
+
+    getDetailThread()
+}
+
+async function checkUserLike(threadId) {
+
+    const { user, error: errorUser } = await kontenbaseClient.auth.user()
+
+    const { data, error } = await kontenbaseClient.service("like").find({
+        where: {
+            thread: [threadId],
+            Users: [user._id]
+        }
+    })
+
+    const isLike = data.length != 0 ? true : false
+    return isLike
+}
+
+async function dislikeThread(id) {
+
+    const { user, error: errorUser } = await kontenbaseClient.auth.user()
+
+    const { data, error } = await kontenbaseClient.service("like").find({
+        where: { thread: id, Users: user._id },
+        lookup: '*'
+    })
+
+    if (error || data.length == 0) {
+        return console.log(error);
+    }
+
+    const { error: errorLike } = await kontenbaseClient.service("like").deleteById(data[0]._id)
+
+    if (errorLike) {
+        return console.log(errorLike);
+    }
+
+    getDetailThread()
+}
+
+async function getThreadCommentCount(id) {
+    const { data, error } = await kontenbaseClient.service("comment").count({
+        where: { thread: id }
+    })
+
+    return data.count
+}
+
+async function commentThread() {
+
+    const message = document.getElementById("comment-message")
+
+    const { user, error: errorUser } = await kontenbaseClient.auth.user()
+
+    if (errorUser) {
+        return console.log(errorUser);
+    }
+
+    const { data, error } = await kontenbaseClient.service("comment").create({
         message: message.value,
         thread: [id],
         Users: [user._id]
@@ -266,33 +266,64 @@ async function commentThread(){
     getCommentThread()
 }
 
-async function getCommentThread(){
+async function getCommentThread() {
     id = new URL(window.location.href).searchParams.get('id')
 
-    const {data, error} = await kontenbaseClient.service("comment").find({
-        where: {thread: id},
+    const { data, error } = await kontenbaseClient.service("comment").find({
+        where: { thread: id },
         lookup: '*'
     })
 
-    if(error){
+    if (error) {
         return console.log(error);
     }
 
     const commentElement = document.getElementById("comment-list")
     commentElement.innerHTML = ''
 
-    await data.forEach((item, index)=>{
+    await data.forEach((item, index) => {
         commentElement.innerHTML += `
                                         <div class="comment-item">
                                             <div class="comment-message">
-                                                ${item.Users[0].username ? item.Users[0].username : item.Users[0].firstName}
+                                                @${item.Users[0].username ? item.Users[0].username : item.Users[0].firstName}
                                             </div>
-                                            <div>
+                                            <div style="margin-left:15px">
                                                 ${item.message}
                                             </div>
                                         <div>
         `
     })
 }
+
+async function renderProfile() {
+    const { user, error } = await kontenbaseClient.auth.user()
+    if (user) {
+        let avatarProfile = document.getElementById("avatar-profile")
+        let threadProfile = document.getElementById("avatar-thread")
+
+        let fullname = document.getElementById("fullname")
+        let username = document.getElementById("username")
+        let biodata = document.getElementById("biodata")
+
+        fullname.innerHTML = user.firstName
+        if (user.username) {
+            username.innerHTML = '@' + user.username
+        } else {
+            username.innerHTML = "@"
+        }
+
+        if (user.biodata) {
+            biodata.innerHTML = user.biodata
+        } else {
+            biodata.innerHTML = "-"
+        }
+
+        avatarProfile.src = user.avatar[0].url
+        threadProfile.src = user.avatar[0].url
+    }
+
+}
+
+renderProfile()
 
 getCommentThread()
