@@ -283,14 +283,16 @@ async function getCommentThread() {
 
     await data.forEach((item, index) => {
         commentElement.innerHTML += `
-                                        <div class="comment-item">
-                                            <div class="comment-message">
-                                                @${item.Users[0].username ? item.Users[0].username : item.Users[0].firstName}
-                                            </div>
-                                            <div style="margin-left:15px">
-                                                ${item.message}
-                                            </div>
-                                        <div>
+            <div class="comment-item">
+                <div class="comment-message">
+                    @${item.Users[0].username ? item.Users[0].username : item.Users[0].firstName}
+                    </div>
+                        <div style="margin-left:15px">
+                            ${item.message}
+                        </div>
+                    <div>
+                <div>
+            <div>
         `
     })
 }
@@ -299,7 +301,6 @@ async function renderProfile() {
     const { user, error } = await kontenbaseClient.auth.user()
     if (user) {
         let avatarProfile = document.getElementById("avatar-profile")
-        let threadProfile = document.getElementById("avatar-thread")
 
         let fullname = document.getElementById("fullname")
         let username = document.getElementById("username")
@@ -319,7 +320,6 @@ async function renderProfile() {
         }
 
         avatarProfile.src = user.avatar[0].url
-        threadProfile.src = user.avatar[0].url
     }
 
 }
