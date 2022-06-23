@@ -5,6 +5,8 @@
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./assets/css/beranda.css">
+    <script src="https://cdn.jsdelivr.net/npm/@kontenbase/sdk"></script>
+
     <title>Beranda</title>
 </head>
 
@@ -32,17 +34,17 @@
 
         <div class="middle-side">
             <div class="card p-20 edit-profile">
-                <h1>VERIFY YOUR ACCAOUNT</h1>
+                <h1>VERIFY YOUR ACCOUNT</h1>
                 <form>
-
                     <div class="group-input">
                         <label for="fullname">Full Name</label>
                         <input type="text" id="fullname">
                     </div>
 
-                    <div class="group-input">
+                    <div class="group-input" id="group-input">
                         <label for="influence">Influence</label>
-                        <input type="text" id="influence">
+                        <label for="influence" class="labelRadio" id="radio-influence">
+                        </label><br>
                     </div>
 
                     <div class="group-input">
@@ -57,10 +59,10 @@
 
                     <div class="group-btn">
                         <div class="btn-cancel">
-                            <button>Cancel</button>
+                            <button type="button" onclick="location.href='beranda.html'">Cancel</button>
                         </div>
                         <div class="btn-save">
-                            <button>Save</button>
+                            <button type="button" onclick="addVerification()">Submit</button>
                         </div>
                     </div>
                 </form>

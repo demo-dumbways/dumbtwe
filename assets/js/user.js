@@ -50,7 +50,6 @@ async function profileEdit() {
     }
 
     const { user, error } = await kontenbaseClient.auth.update(userData)
-    console.log(user);
 
     window.location.href = "beranda.html"
 }

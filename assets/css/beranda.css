@@ -219,7 +219,7 @@ body {
 }
 
 .post-thread .right textarea,
-input {
+input[type=text] {
   background-color: #4e657c;
   color: #c0cad3;
   width: 100%;
@@ -484,7 +484,7 @@ input:focus {
   margin-top: 10px;
 }
 
-.edit-profile .group-input input,
+.edit-profile .group-input input[type=text],
 textarea {
   background-color: #4e657c;
   color: #c0cad3;
@@ -492,6 +492,16 @@ textarea {
   border-radius: 10px;
   resize: none;
   padding: 10px;
+  margin-top: 5px;
+}
+
+.edit-profile .group-input .labelRadio {
+  color: #c0cad3;
+  display: block;
+  margin-top: 5px;
+}
+
+.edit-profile .group-input .labelRadio input {
   margin-top: 5px;
 }
 
