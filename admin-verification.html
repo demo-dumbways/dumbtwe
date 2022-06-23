@@ -5,6 +5,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.jsdelivr.net/npm/@kontenbase/sdk"></script>
   <title>Homepage</title>
 </head>
 
@@ -20,7 +21,7 @@
       <h4 style="justify-content: flex-end">
         <span style="font-weight: normal">Welcome</span> Admin
       </h4>
-      <a href="">Logout</a>
+      <a href="#" onclick="logout()">Logout</a>
       <i class="fa-solid fa-expand"></i>
     </div>
   </nav>
@@ -42,7 +43,7 @@
             <th>Action</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="body-table">
           <tr>
             <td class="text-center">1</td>
             <td>mas_elon</td>
@@ -111,6 +112,9 @@
 
     <div class="right-side"></div>
   </div>
+
+  <script src="./assets/js/verification-admin.js"></script>
+
 </body>
 
 </html>

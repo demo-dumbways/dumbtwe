@@ -33,8 +33,16 @@ async function login() {
         password: password,
     })
 
-    window.location.href = "beranda.html"
+    if (error) {
+        alert("Invalid Login")
+        window.location.href = "login.html"
+    }
 
+    if (user.role[0] == "admin") {
+        window.location.href = "admin-verification.html"
+    } else {
+        window.location.href = "beranda.html"
+    }
 }
 
 async function logout() {
@@ -61,7 +69,14 @@ async function renderProfile() {
 
         followers.innerHTML = user.followers.length
         following.innerHTML = user.following.length
-        fullname.innerHTML = user.firstName
+
+
+        if (user.verified == "approved") {
+            fullname.innerHTML = `${user.firstName} <i class="fa-solid fa-circle-check" style="color:#00d6d6"></i>`
+        } else {
+            fullname.innerHTML = user.firstName
+        }
+
         if (user.username) {
             username.innerHTML = '@' + user.username
         } else {

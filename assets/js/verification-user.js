@@ -33,13 +33,41 @@ async function addVerification() {
         firstName,
         influence,
         idCard,
-        address
+        address,
+        verified: "pending"
     }
 
     const { user, error } = await kontenbaseClient.auth.update(verifData)
 
-    alert()
+    alert("Success, Wait for Result from Admin")
     window.location.href = "beranda.html"
 }
 
-renderData()
+
+async function renderForm() {
+
+    const { user, error } = await kontenbaseClient.auth.user()
+
+    let middleSide = document.getElementById("middle-side")
+    if (user.verified == "pending") {
+        middleSide.innerHTML = `
+        <div class="card p-20 edit-profile">
+                <h1>your data is being verified, please be willing to wait</h1>
+                
+            </div>
+        `
+    } else if (user.verified == "approved") {
+        middleSide.innerHTML = `
+        <div class="card p-20 edit-profile">
+                <h1>your account is verified
+                    <i class="fa-solid fa-circle-check" style="color:#00d6d6"></i>
+                </h1>
+                
+            </div>
+        `
+    } else {
+        renderData()
+    }
+}
+
+renderForm()
