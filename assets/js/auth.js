@@ -45,9 +45,9 @@ async function logout() {
 
 }
 
-async function renderProfile(){
-    const {user, error} = await kontenbaseClient.auth.user()
-    if(user){
+async function renderProfile() {
+    const { user, error } = await kontenbaseClient.auth.user()
+    if (user) {
         let avatarProfile = document.getElementById("avatar-profile")
         let threadProfile = document.getElementById("avatar-thread")
 
@@ -56,13 +56,13 @@ async function renderProfile(){
         let biodata = document.getElementById("biodata")
 
         fullname.innerHTML = user.firstName
-        if(user.username){
+        if (user.username) {
             username.innerHTML = '@' + user.username
         } else {
             username.innerHTML = "@"
         }
 
-        if(user.biodata){
+        if (user.biodata) {
             biodata.innerHTML = user.biodata
         } else {
             biodata.innerHTML = "-"
@@ -76,3 +76,45 @@ async function renderProfile(){
 
 renderProfile()
 
+async function renderUserFollow() {
+
+    id = new URL(window.location.href).searchParams.get('id')
+    const { user, error: errorUser } = await kontenbaseClient.auth.user()
+
+    const { data, error } = await kontenbaseClient.service("follow").find({
+        where: {
+            // idUserFrom: [user._id],
+            idUserTo: [user._id]
+        },
+        lookup: '*'
+    })
+
+    console.log(data);
+
+    let followContainer = document.getElementById('list-suggest');
+    followContainer.innerHTML = '';
+    for (let i = 0; i < data.length; i++) {
+        followContainer.innerHTML += `
+        <div class="suggest">
+          <div class="avatar">
+              <img src="${data[i].idUserFrom[0].avatar[0].url}" alt="">
+          </div>
+  
+          <div class="account">
+              <a href="">
+              </a>
+              <p>@${data[i].idUserFrom[0].username}</p>
+          </div>
+  
+          <div class="btn-follow">
+              <button onclick="followingUser('${data[i].idUserFrom[0]._id}')"><span id="text-follow">Follow<span/></button>
+          </div>
+        </div>
+        
+        `
+    }
+
+
+}
+
+renderUserFollow()

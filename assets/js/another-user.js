@@ -255,7 +255,7 @@ async function checkFollowUser(){
     }
   })
 
-  console.log(data);
+  // console.log(data);
 
   let btnFollow = document.getElementById('text-follow')
 
@@ -286,9 +286,7 @@ async function renderUserFollow(){
       idUserTo: [user._id]
     },
     lookup: '*'
-  })
-
-  console.log(data);
+  }) 
 
   let followContainer = document.getElementById('list-suggest');
   followContainer.innerHTML = '';
@@ -337,6 +335,4 @@ async function followingUser(id){
     idUserFrom: [user._id],
     idUserTo: [dataUser[0]._id]
   })
-
-  
 }
