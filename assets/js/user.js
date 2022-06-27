@@ -1,19 +1,22 @@
 
-const API_KEY = 'aea64958-96f0-45dc-b3cc-e9991afd890e'
+const API_KEY = '6e926aea-71c3-4445-9fbf-2b2c3c06b50a'
 
 const kontenbaseClient = new kontenbase.KontenbaseClient({
     apiKey: API_KEY
 })
 
 async function renderUserInfo() {
-
     const { user, error } = await kontenbaseClient.auth.user()
-    console.log(user);
+    if (user.username) {
+        document.getElementById("username").value = user.username
+    }
 
     document.getElementById("fullname").value = user.firstName
-    document.getElementById("username").value = user.username
+
     document.getElementById("email").value = user.email
-    document.getElementById("biodata").value = user.biodata
+    if (user.biodata) {
+        document.getElementById("biodata").value = user.biodata
+    }
 }
 
 renderUserInfo()
@@ -55,14 +58,21 @@ async function profileEdit() {
 }
 
 async function renderProfile() {
-    const { user, error } = await kontenbaseClient.auth.user()
+    const { user, error } = await kontenbaseClient.auth.user({
+        lookup: ['following', 'followers']
+    })
     if (user) {
         let avatarProfile = document.getElementById("avatar-profile")
         let previewProfile = document.getElementById("thumbnail-preview")
 
-        let fullname = document.getElementById("fullname")
-        let username = document.getElementById("username")
-        let biodata = document.getElementById("biodata")
+        let fullname = document.getElementById("fullnameProfile")
+        let username = document.getElementById("usernameProfile")
+        let biodata = document.getElementById("biodataProfile")
+        let followers = document.getElementById("followers")
+        let following = document.getElementById("following")
+
+        followers.innerHTML = user.followers.length
+        following.innerHTML = user.following.length
 
         fullname.innerHTML = user.firstName
         if (user.username) {
@@ -77,8 +87,10 @@ async function renderProfile() {
             biodata.innerHTML = "-"
         }
 
-        avatarProfile.src = user.avatar[0].url
-        previewProfile.src = user.avatar[0].url
+        if (user.avatar) {
+            avatarProfile.src = user.avatar[0].url
+            previewProfile.src = user.avatar[0].url
+        }
     }
 
 }

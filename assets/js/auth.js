@@ -1,5 +1,5 @@
 
-const API_KEY = 'aea64958-96f0-45dc-b3cc-e9991afd890e'
+const API_KEY = '6e926aea-71c3-4445-9fbf-2b2c3c06b50a'
 
 const kontenbaseClient = new kontenbase.KontenbaseClient({
     apiKey: API_KEY
@@ -61,9 +61,9 @@ async function renderProfile() {
         let avatarProfile = document.getElementById("avatar-profile")
         let threadProfile = document.getElementById("avatar-thread")
 
-        let fullname = document.getElementById("fullname")
-        let username = document.getElementById("username")
-        let biodata = document.getElementById("biodata")
+        let fullname = document.getElementById("fullnameProfile")
+        let username = document.getElementById("usernameProfile")
+        let biodata = document.getElementById("biodataProfile")
         let followers = document.getElementById("followers")
         let following = document.getElementById("following")
 
@@ -89,8 +89,10 @@ async function renderProfile() {
             biodata.innerHTML = "-"
         }
 
-        avatarProfile.src = user.avatar[0].url
-        threadProfile.src = user.avatar[0].url
+        if (user.avatar) {
+            avatarProfile.src = user.avatar[0].url
+            threadProfile.src = user.avatar[0].url
+        }
     }
 
 }

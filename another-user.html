@@ -22,7 +22,10 @@
         </div>
 
         <div class="right">
-            <a href="">Logout</a>
+            <a href="verification.html">
+                <i class="fa-solid fa-circle-check"></i>
+            </a>
+            <a class="logout" href="#">Logout</a>
             <i class="fa-solid fa-expand"></i>
         </div>
     </nav>
@@ -42,54 +45,25 @@
                 <hr>
                 <div class="follow">
                     <div class="following">
-                        <h2>57k</h2>
+                        <h2 id="following">57k</h2>
                         <p>following</p>
                     </div>
                     <div class="followers">
-                        <h2>282</h2>
+                        <h2 id="followers">282</h2>
                         <p>followers</p>
                     </div>
                 </div>
                 <hr>
-                <button class="btn-user-follow" id="btn-follow" onclick="followUser()"><span id="text-follow">Follow</span></button>
+                <button class="btn-user-follow" id="btn-follow" onclick="followUser()"><span
+                        id="text-follow">Follow</span></button>
+                <button class="btn-user-follow" id="btn-follow" onclick="sendMessage()"><span
+                        id="text-follow">Message</span></button>
             </div>
 
             <div class="card list-follow p-20">
                 <h3>Who is to follow you</h3>
 
                 <div class="list-suggest" id="list-suggest">
-
-                    <!-- <div class="suggest">
-
-                        <div class="avatar">
-                            <img src="./assets/img/profile.jpg" alt="">
-                        </div>
-
-                        <div class="account">
-                            <a href="">
-                                Steve Rogers
-                            </a>
-                            <p>@steve_r</p>
-                        </div>
-
-                        <div class="btn-follow">
-                            <button>Follow</button>
-                        </div>
-                    </div>
-                    <div class="suggest">
-                        <div class="avatar">
-                            <img src="./assets/img/profile.jpg" alt="">
-                        </div>
-                        <div class="account">
-                            <a href="">
-                                Jody Setyawan
-                            </a>
-                            <p>@jody</p>
-                        </div>
-                        <div class="btn-follow">
-                            <button>Follow</button>
-                        </div>
-                    </div> -->
 
                 </div>
             </div>

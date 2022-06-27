@@ -69,6 +69,7 @@ async function renderThreads() {
                 <div class="profile-user">
                   <div onclick="location.href = 'another-user.html?id=${threads[i].owner._id}'; event.stopPropagation()">
                     <h3>${threads[i].owner.firstName}</h3>
+                    ${threads[i].owner.verified == "approved" ? `<i class="fa-solid fa-circle-check" style="color:#00d6d6"></i>` : ''}
                     <span>${threads[i].owner.username}</span>
                   </div>
                   <span>33 minutes ago</span>
@@ -98,19 +99,19 @@ async function renderThreads() {
                   </div>
                 </div>
                 <div class="react-button">
-                  ${(await checkUserLike(threads[i]._id)) ? 
-                    `
+                  ${(await checkUserLike(threads[i]._id)) ?
+        `
                       <button class="btn-dislike" onclick="dislikeThread('${threads[i]._id}'); event.stopPropagation()">
                         <i class="fa-solid fa-heart"></i> Like
                       </button>
                     `
-                    :
-                    `
+        :
+        `
                       <button class="btn-like" onclick="likeThread('${threads[i]._id}'); event.stopPropagation()">
                         <i class="fa-solid fa-heart"></i> Like
                       </button>
                     `
-                  }
+      }
                   <button class="btn-comment">
                     <i class=" fa-solid fa-comment-dots"></i> Comment
                   </button>
@@ -122,39 +123,39 @@ async function renderThreads() {
   }
 }
 
-async function getThreadLike(id){
+async function getThreadLike(id) {
 
-  const {data, error} = await kontenbaseClient.service("like").count({
-    where: {thread: id}
+  const { data, error } = await kontenbaseClient.service("like").count({
+    where: { thread: id }
   })
 
   return data.count;
 }
 
-async function likeThread(id){
-  const {user, error: errorUser} = await kontenbaseClient.auth.user()
+async function likeThread(id) {
+  const { user, error: errorUser } = await kontenbaseClient.auth.user()
 
-  if(errorUser){
+  if (errorUser) {
     return console.log(errorUser);
   }
 
-  const {data, error} = await kontenbaseClient.service("like").create({
+  const { data, error } = await kontenbaseClient.service("like").create({
     thread: [id],
     Users: [user._id]
   })
 
-  if(error){
+  if (error) {
     console.log(error);
   }
 
   getThreads()
 }
 
-async function checkUserLike(threadId){
+async function checkUserLike(threadId) {
 
-  const {user, error: errorUser} = await kontenbaseClient.auth.user()
+  const { user, error: errorUser } = await kontenbaseClient.auth.user()
 
-  const {data, error } = await kontenbaseClient.service("like").find({
+  const { data, error } = await kontenbaseClient.service("like").find({
     where: {
       thread: [threadId],
       Users: [user._id]
@@ -165,37 +166,37 @@ async function checkUserLike(threadId){
   return isLike
 }
 
-async function dislikeThread(id){
+async function dislikeThread(id) {
 
-  const {user, error: errorUser} = await kontenbaseClient.auth.user()
+  const { user, error: errorUser } = await kontenbaseClient.auth.user()
 
-  const {data, error} = await kontenbaseClient.service("like").find({
-    where: {thread: id, Users: user._id},
+  const { data, error } = await kontenbaseClient.service("like").find({
+    where: { thread: id, Users: user._id },
     lookup: '*'
   })
 
-  if(error || data.length == 0){
+  if (error || data.length == 0) {
     return console.log(error);
   }
 
-  const {error: errorLike} = await kontenbaseClient.service("like").deleteById(data[0]._id)
+  const { error: errorLike } = await kontenbaseClient.service("like").deleteById(data[0]._id)
 
-  if(errorLike){
+  if (errorLike) {
     return console.log(errorLike);
   }
 
   getThreads()
 }
 
-async function getThreadCommentCount(id){
-  const {data, error} = await kontenbaseClient.service("comment").count({
-    where: {thread: id}
+async function getThreadCommentCount(id) {
+  const { data, error } = await kontenbaseClient.service("comment").count({
+    where: { thread: id }
   })
 
   return data.count
 }
 
-function navigateHastag(hastag){
+function navigateHastag(hastag) {
   localStorage.setItem('hastag', hastag)
 
   window.location.href = "data-hastag.html"

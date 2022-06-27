@@ -5,6 +5,7 @@
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./assets/css/beranda.css">
+    <script src="https://cdn.jsdelivr.net/npm/@kontenbase/sdk"></script>
     <title>My Thread</title>
 </head>
 
@@ -36,19 +37,19 @@
                     <img src="./assets/img/backdrop.jpg" alt="">
                 </div>
                 <div class="biodata">
-                    <img src="./assets/img/profile.jpg" alt="">
-                    <h3>Ilham Fathullah</h3>
-                    <p class="username">@ilfat_fathul</p>
-                    <p class="bio">Play Hard, Study Hard, Istira Hard</p>
+                    <img src="./assets/img/profile.jpg" alt="" id="avatar-profile">
+                    <h3 id="fullnameProfile">Ilham Fathullah</h3>
+                    <p class="username" id="usernameProfile">@ilfat_fathul</p>
+                    <p class="bio" id="biodataProfile">Play Hard, Study Hard, Istira Hard</p>
                 </div>
                 <hr>
                 <div class="follow">
                     <div class="following">
-                        <h2>57k</h2>
+                        <h2 id="following">57k</h2>
                         <p>following</p>
                     </div>
                     <div class="followers">
-                        <h2>282</h2>
+                        <h2 id="followers">282</h2>
                         <p>followers</p>
                     </div>
                 </div>
@@ -100,7 +101,7 @@
         <div class="middle-side">
             <div class="card p-20 post-thread">
                 <div class="left">
-                    <img src="./assets/img/profile.jpg" alt="">
+                    <img src="./assets/img/profile.jpg" alt="" id="avatar-thread">
                 </div>
                 <div class="right">
                     <form>
@@ -124,133 +125,8 @@
                     </form>
                 </div>
             </div>
-            <div class="card p-20 view-thread">
-                <div class="left">
-                    <img src="./assets/img/profile.jpg" alt="">
-                </div>
-                <div class="right">
-                    <div class="top">
-                        <div class="profile-user">
-                            <div>
-                                <h3>Ilham Fathullah</h3>
-                                <span>@ilfat_fathul</span>
-                            </div>
-                            <span>45 minutes ago</span>
-                        </div>
-                        <div class="options">
-                            <i class="fa-solid fa-ellipsis"></i>
-                        </div>
-                    </div>
-                    <div class="content-thread">
-                        <p>
-                            Terkadang kita harus bernafas untuk bertahan hidup
-                        </p>
-                        <img src="./assets/img/thread-2.jpeg" alt="">
-                    </div>
-                    <div class="bottom">
-                        <div class="react-view">
-                            <div class="react-group">
-                                <i class="fa-solid fa-heart"></i> <span>18k</span>
-                            </div>
-                            <div class="react-group">
-                                <i class="fa-solid fa-comment-dots"></i> <span>16</span>
-                            </div>
-                        </div>
-                        <div class="react-button">
-                            <button class="btn-like">
-                                <i class="fa-solid fa-heart"></i> Like
-                            </button>
-                            <button class="btn-comment">
-                                <i class="fa-solid fa-comment-dots"></i> Comment
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card p-20 view-thread">
-                <div class="left">
-                    <img src="./assets/img/profile.jpg" alt="">
-                </div>
-                <div class="right">
-                    <div class="top">
-                        <div class="profile-user">
-                            <div>
-                                <h3>Ilham Fathullah</h3>
-                                <span>@ilfat_fathul</span>
-                            </div>
-                            <span>2 hours ago</span>
-                        </div>
-                        <div class="options">
-                            <i class="fa-solid fa-ellipsis"></i>
-                        </div>
-                    </div>
-                    <div class="content-thread">
-                        <p>
-                            Waktu tak dapat diputar, dijilat, apalagi dicelupin.
-                        </p>
-                        <img src="./assets/img/thread-3.jpeg" alt="">
-                    </div>
-                    <div class="bottom">
-                        <div class="react-view">
-                            <div class="react-group">
-                                <i class="fa-solid fa-heart"></i> <span>18k</span>
-                            </div>
-                            <div class="react-group">
-                                <i class="fa-solid fa-comment-dots"></i> <span>16</span>
-                            </div>
-                        </div>
-                        <div class="react-button">
-                            <button class="btn-like">
-                                <i class="fa-solid fa-heart"></i> Like
-                            </button>
-                            <button class="btn-comment">
-                                <i class="fa-solid fa-comment-dots"></i> Comment
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card p-20 view-thread">
-                <div class="left">
-                    <img src="./assets/img/profile.jpg" alt="">
-                </div>
-                <div class="right">
-                    <div class="top">
-                        <div class="profile-user">
-                            <div>
-                                <h3>Ilham Fathullah</h3>
-                                <span>@ilfat_fathul</span>
-                            </div>
-                            <span>2 hours ago</span>
-                        </div>
-                        <div class="options">
-                            <i class="fa-solid fa-ellipsis"></i>
-                        </div>
-                    </div>
-                    <div class="content-thread">
-                        <p>
-                            Hello Wolrd
-                        </p>
-                    </div>
-                    <div class="bottom">
-                        <div class="react-view">
-                            <div class="react-group">
-                                <i class="fa-solid fa-heart"></i> <span>7k</span>
-                            </div>
-                            <div class="react-group">
-                                <i class="fa-solid fa-comment-dots"></i> <span>5</span>
-                            </div>
-                        </div>
-                        <div class="react-button">
-                            <button class="btn-like">
-                                <i class="fa-solid fa-heart"></i> Like
-                            </button>
-                            <button class="btn-comment">
-                                <i class="fa-solid fa-comment-dots"></i> Comment
-                            </button>
-                        </div>
-                    </div>
-                </div>
+            <div id="thread-container">
+
             </div>
         </div>
 
@@ -295,6 +171,7 @@
             </div>
         </div>
     </div>
+    <script src="./assets/js/my-thread.js"></script>
 
 </body>
 

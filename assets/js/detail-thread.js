@@ -1,4 +1,4 @@
-const API_KEY = 'aea64958-96f0-45dc-b3cc-e9991afd890e'
+const API_KEY = '6e926aea-71c3-4445-9fbf-2b2c3c06b50a'
 
 const kontenbaseClient = new kontenbase.KontenbaseClient({
     apiKey: API_KEY
@@ -31,6 +31,7 @@ async function renderDetailThread(data) {
                         <div class="profile-user">
                             <div>
                                 <h3>${data.owner.firstName}</h3>
+                                ${data.owner.verified == "approved" ? `<i class="fa-solid fa-circle-check" style="color:#00d6d6"></i>` : ''}
                                 <span>@${data.owner.username}</span>
                             </div>
                             <span>33 minutes ago</span>
@@ -298,13 +299,20 @@ async function getCommentThread() {
 }
 
 async function renderProfile() {
-    const { user, error } = await kontenbaseClient.auth.user()
+    const { user, error } = await kontenbaseClient.auth.user({
+        lookup: ['following', 'followers']
+    })
     if (user) {
         let avatarProfile = document.getElementById("avatar-profile")
 
         let fullname = document.getElementById("fullname")
         let username = document.getElementById("username")
         let biodata = document.getElementById("biodata")
+        let followers = document.getElementById("followers")
+        let following = document.getElementById("following")
+
+        followers.innerHTML = user.followers.length
+        following.innerHTML = user.following.length
 
         fullname.innerHTML = user.firstName
         if (user.username) {
