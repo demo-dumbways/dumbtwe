@@ -7,6 +7,7 @@ const kontenbaseClient = new kontenbase.KontenbaseClient({
 let idUserRecipient = ''
 
 async function getListChats() {
+    kontenbaseClient.realtime.unsubscribe(key)
     const { user, error: errorUser } = await kontenbaseClient.auth.user()
     const { data: dataSender, error } = await kontenbaseClient.service('chats').find({
         where: {
@@ -69,6 +70,7 @@ function renderListChats(chats) {
 }
 
 async function getMessage(idAnotherUser) {
+    kontenbaseClient.realtime.unsubscribe(key)
     idUserRecipient = idAnotherUser
 
     let cardSelected = document.getElementById("selected")
@@ -155,7 +157,7 @@ async function renderMessage(dataChats, idAnotherUser) {
 }
 
 
-kontenbaseClient.realtime.subscribe('chats', { event: '*' }, (message) => {
+const key = kontenbaseClient.realtime.subscribe('chats', { event: '*' }, (message) => {
     if (message.error) {
         console.log(message.error)
         return
