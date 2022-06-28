@@ -62,7 +62,7 @@ async function renderThreads() {
     threadContainer.innerHTML += `
           <div class="card p-20 view-thread" onclick="location.href='detail-thread.html?id=${threads[i]._id}'">
             <div class="left">
-            <img src="${threads[i].owner.avatar[0].url}" alt="">
+            <img src="${threads[i].owner.avatar[0].url}" alt="" style="height:55px;width:55px">
             </div>
             <div class="right">
               <div class="top">

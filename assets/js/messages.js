@@ -6,6 +6,23 @@ const kontenbaseClient = new kontenbase.KontenbaseClient({
 
 let idUserRecipient = ''
 
+const key = kontenbaseClient.realtime.subscribe('chats', { event: '*' }, (message) => {
+    if (message.error) {
+        console.log(message.error)
+        return
+    }
+
+    getMessage(idUserRecipient)
+    getListChats()
+})
+getListChats()
+
+if (localStorage.idAnotherUser) {
+    idUserRecipient = localStorage.getItem('idAnotherUser')
+    localStorage.removeItem('idAnotherUser')
+    getMessage(idUserRecipient)
+}
+
 async function getListChats() {
     kontenbaseClient.realtime.unsubscribe(key)
     const { user, error: errorUser } = await kontenbaseClient.auth.user()
@@ -44,6 +61,7 @@ async function getListChats() {
     chats = [...new Map(chats.map(item =>
         [item['_id'], item])).values()]
 
+    console.log(dataRecipient, chats);
     chats.sort((a, b) => b.createdAt.localeCompare(a.createdAt))
     renderListChats(chats)
 }
@@ -99,6 +117,7 @@ async function getMessage(idAnotherUser) {
     });
 
     let dataChats = dataSender.concat(dataRecipient)
+
     dataChats.sort((a, b) => a.createdAt.localeCompare(b.createdAt))
 
     renderMessage(dataChats, idAnotherUser)
@@ -108,7 +127,6 @@ async function renderMessage(dataChats, idAnotherUser) {
 
     const { data, error } = await kontenbaseClient.service('Users').getById(idAnotherUser)
 
-    console.log(data);
     let messageProfile = document.getElementById("profile-chat")
     let message = document.getElementById("message")
     message.innerHTML = ''
@@ -127,11 +145,10 @@ async function renderMessage(dataChats, idAnotherUser) {
         </div>
     `
 
-    console.log(dataChats);
-
     if (!dataChats) {
         return
     }
+    console.log(dataChats);
 
     for (let i = 0; i < dataChats.length; i++) {
         message.innerHTML += `
@@ -156,28 +173,10 @@ async function renderMessage(dataChats, idAnotherUser) {
     }
 }
 
-
-const key = kontenbaseClient.realtime.subscribe('chats', { event: '*' }, (message) => {
-    if (message.error) {
-        console.log(message.error)
-        return
-    }
-
-    getMessage(idUserRecipient)
-    getListChats()
-})
-getListChats()
-
-if (localStorage.idAnotherUser) {
-    idUserRecipient = localStorage.getItem('idAnotherUser')
-    localStorage.removeItem('idAnotherUser')
-    getMessage(idUserRecipient)
-}
-
 async function addMessage() {
-    const { user, error: errorUser } = await kontenbaseClient.auth.user()
+    // const { user, error: errorUser } = await kontenbaseClient.auth.user()
 
-    console.log(idUserRecipient);
+    // console.log(idUserRecipient);
     let textMessage = document.getElementById("write-message").value
 
     const { data, error } = await kontenbaseClient.service('chats').create({
